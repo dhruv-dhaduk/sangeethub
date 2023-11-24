@@ -30,13 +30,27 @@
     margin-bottom: 2rem;
 }
 
+.player-time-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.player-time-container > p {
+    margin: 0;
+    padding: 0.2rem;
+
+    font-size: 0.9rem;
+    color: #e5e5e5;
+}
+
 .player-btn-container > button > img {
     width: 1rem;
 }
 
 .player-progress-bar {
     --progress-bar-color: rgb(0, 191, 255);
-    
+
     cursor: pointer;
     height: 0.2rem;
     border-radius: 0.1rem;
