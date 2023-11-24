@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-function get_videoIDs() {
+function get_videoID() {
 
     const videoIDs = [
         "TxidFkYHDfI",
@@ -23,15 +23,10 @@ function get_videoIDs() {
         "EatzcaVJRMs"
     ];
 
-    for (let i = videoIDs.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [videoIDs[i], videoIDs[j]] = [videoIDs[j], videoIDs[i]];
-    }
-
-    return videoIDs;
+    return videoIDs[Math.floor(Math.random() * videoIDs.length)];
 }
 
-let videoIDs = get_videoIDs();
+const videoID = get_videoID();
 
 let player;
 let playerLoaded = false;
@@ -40,7 +35,7 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player("player-iframe", {
         height: '390',
         width: '640',
-        videoId: videoIDs[0],
+        videoId: videoID,
         playerVars: {
             'playsinline': 1
         },
@@ -52,7 +47,11 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady(event) {
-    // player.playVideo();
+    document.querySelector("#player-title").innerHTML = player.videoTitle;
+
+    const thumbnail = `https://img.youtube.com/vi/${videoID}/maxresdefault.jpg`
+    document.querySelector("#player-thumbnail-img").src = thumbnail;
+    document.querySelector("#player-background-img").src = thumbnail;
 }
 
 function onPlayerStateChange(event) {
