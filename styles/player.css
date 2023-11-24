@@ -106,7 +106,7 @@
 }
 
 .player-progress-bar {
-    --progress-bar-color: rgb(0, 191, 255);
+    --progress-bar-color:  #8fd2ff;
     
     cursor: pointer;
     height: 0.2rem;
