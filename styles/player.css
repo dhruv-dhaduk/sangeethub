@@ -54,7 +54,7 @@
 
 .player-btn-container > button {
     background: transparent;
-    border: 1px solid white;
+    border: none;
     border-radius: 50%;
     aspect-ratio: 1;
     padding: calc(0.8 * var(--icon-size));
