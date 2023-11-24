@@ -1,16 +1,15 @@
-#player {
+#playerpage {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.player {
     display: flex;
     flex-direction: column;
 
-    width: min(calc(100vw - 100px), 400px);
-    padding-top: 50px;
-
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    width: min(calc(100% - 5rem), 25rem);
+    padding-top: 2.5rem;
 }
 
 .player-thumbnail {
