@@ -33,3 +33,21 @@
 .player-btn-container > button > img {
     width: 1rem;
 }
+
+.player-progress-bar {
+    --progress-bar-color: rgb(0, 191, 255);
+    
+    cursor: pointer;
+    height: 0.2rem;
+    border-radius: 0.1rem;
+    accent-color: var(--progress-bar-color);
+}
+
+.player-progress-bar::-moz-range-thumb {
+    background-color: var(--progress-bar-color);
+    border: none;
+}
+
+.player-progress-bar::-moz-range-progress {
+    background-color: var(--progress-bar-color);
+}
