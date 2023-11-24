@@ -8,6 +8,10 @@
     position: relative;
 }
 
+#player-iframe {
+    display: none;
+}
+
 .player-background {
     position: absolute;
     top: 0;
