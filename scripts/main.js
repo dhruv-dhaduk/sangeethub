@@ -28,3 +28,7 @@ async function fetch_sheet() {
 
     return videoIDs;
 }
+
+function onYouTubeIframeAPIReady() {
+    
+}
