@@ -2,6 +2,22 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("img").forEach((img) => {
         img.addEventListener("contextmenu", (e) => { e.preventDefault(); });
     });
+
+    document.querySelector("#player-btn-playpause").addEventListener("click", () => {
+        if (playerLoaded)
+            return;
+
+        playerLoaded = true;
+        fetch_sheet()
+        .then((videoIDs) => {
+            player.loadPlaylist(videoIDs, 0, 0);
+            alert("Music Player has started.");
+        })
+        .catch((err) => {
+            console.log(`Could't not start player : ${err}`);
+            alert("Couldn't Start the Music Player.");
+        })
+    });
 });
 
 async function fetch_sheet() {
@@ -29,6 +45,20 @@ async function fetch_sheet() {
     return videoIDs;
 }
 
+let player;
+let playerLoaded = false;
+
 function onYouTubeIframeAPIReady() {
-    
+    player = new YT.Player("player-iframe", {
+        playerVars: {
+            'playsinline': 1
+        },
+        events: {
+            'onStateChange': onPlayerStateChange
+        }
+    });
+}
+
+function onPlayerStateChange(event) {
+    console.log(`Player state changed : ${event}`);
 }
