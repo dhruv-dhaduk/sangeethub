@@ -58,6 +58,15 @@
     border-radius: 50%;
     aspect-ratio: 1;
     padding: calc(0.8 * var(--icon-size));
+
+    --click-transition-duration: 100ms;
+
+    transition-duration: var(--click-transition-duration);
+}
+
+.player-btn-container > button:active {
+    scale: 0.9;
+    transition-duration: var(--click-transition-duration);
 }
 
 .player-btn-container > button > img {
