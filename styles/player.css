@@ -31,8 +31,9 @@
     display: flex;
     flex-direction: column;
 
-    width: min(calc(100% - 5rem), 25rem);
-    padding-top: 2.5rem;
+    --player-padding: 1.5rem;
+    width: min(calc(100% - var(--player-padding) * 2), 25rem);
+    padding-top: var(--player-padding);
 }
 
 .player-thumbnail {
