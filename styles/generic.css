@@ -8,3 +8,12 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
+p, img {
+    user-select: none;
+}
+
+button, button img {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
