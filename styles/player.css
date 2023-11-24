@@ -69,6 +69,10 @@
     transition-duration: var(--click-transition-duration);
 }
 
+.player-btn-container > .player-btn-playpause {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
 .player-btn-container > button > img {
     width: var(--icon-size);
     height: var(--icon-size);
