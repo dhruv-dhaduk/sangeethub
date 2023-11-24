@@ -44,13 +44,30 @@
     color: #e5e5e5;
 }
 
+.player-btn-container {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+
+    --icon-size: 1.1rem;
+}
+
+.player-btn-container > button {
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    padding: calc(0.8 * var(--icon-size));
+}
+
 .player-btn-container > button > img {
-    width: 1rem;
+    width: var(--icon-size);
+    height: var(--icon-size);
 }
 
 .player-progress-bar {
     --progress-bar-color: rgb(0, 191, 255);
-
+    
     cursor: pointer;
     height: 0.2rem;
     border-radius: 0.1rem;
