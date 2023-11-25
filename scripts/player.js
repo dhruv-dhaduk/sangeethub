@@ -41,6 +41,9 @@ function onPlayerReady(event) {
 
 function onPlayerStateChange(event) {
     const stat = player.getPlayerState();
+    
+    if (stat === YT.PlayerState.ENDED)
+        window.location.reload();
 
     const actualPlaying = stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING;
 
@@ -66,6 +69,7 @@ function onPlayerStateChange(event) {
         playpause.classList.add("infinite-blink-animation");
     else
         playpause.classList.remove("infinite-blink-animation");
+
 }
 
 function updateCurrentTime() {
