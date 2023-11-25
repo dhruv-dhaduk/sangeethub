@@ -60,6 +60,12 @@ function onPlayerStateChange(event) {
 
         clearInterval(timeUpdateITV);
     }
+
+    const playpause = document.querySelector("#player-btn-playpause");
+    if (stat === YT.PlayerState.BUFFERING)
+        playpause.classList.add("infinite-blink-animation");
+    else
+        playpause.classList.remove("infinite-blink-animation");
 }
 
 function updateCurrentTime() {
