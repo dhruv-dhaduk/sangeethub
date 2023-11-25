@@ -39,9 +39,14 @@ function onPlayerStateChange(event) {
 
     if (actualPlaying) {
         playpauseIcon.src = pauseLogoURL;
+
+        clearInterval(timeUpdateITV);
+        timeUpdateITV = setInterval(updateCurrentTime, 500);
     }
     else {
         playpauseIcon.src = playLogoURL;
+
+        clearInterval(timeUpdateITV);
     }
 }
 
