@@ -7,7 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.querySelector("#player-btn-playpause").addEventListener("click", () => {
-        player.playVideo();
+        const stat = player.getPlayerState();
+        if (stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING)
+            player.pauseVideo();
+        else
+            player.playVideo();
     });
 
     document.querySelector("#player-thumbnail").addEventListener("click", toggleThumbnail);
