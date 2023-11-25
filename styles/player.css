@@ -151,3 +151,20 @@
 .player-progress-bar::-moz-range-progress {
     background-color: var(--progress-bar-color);
 }
+
+.blink-animation {
+    animation-name: blink;
+    animation-duration: 3s;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    15% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
