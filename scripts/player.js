@@ -17,6 +17,9 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
     document.querySelector("#player-title").innerHTML = player.videoTitle;
+    const duration = convertTime(player.getDuration());
+    if (duration)
+        document.querySelector("#player-duration").innerHTML = duration;
 
     const thumbnail = `https://img.youtube.com/vi/${videoID}/maxresdefault.jpg`
     document.querySelector("#player-thumbnail-img").src = thumbnail;
