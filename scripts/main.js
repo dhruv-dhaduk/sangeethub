@@ -14,9 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
         thumbnailContent.classList.remove("blink-animation");
         setTimeout(() => {
             thumbnailContent.classList.add("blink-animation");
-            
+
             const iframe = document.querySelector(".player-iframe-container");
-            const img = document.querySelector("#player-thumbnail-img");
+            const img = document.querySelector(".player-thumbnail-img-container");
     
             if (videoVisible) {
                 iframe.style.display = "none";
