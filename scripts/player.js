@@ -96,6 +96,14 @@ function toggleThumbnail() {
 
 function addProgressbarEventListeners() {
     const progress = document.querySelector("#player-progress-bar");
+
+    progress.addEventListener("input", handleProgressbarChange);
+    
+    progress.addEventListener("mousedown", handleProgressbarDragStart);
+    progress.addEventListener("touchstart", handleProgressbarDragStart);
+
+    progress.addEventListener("mouseup", handleProgressbarDragEnd);
+    progress.addEventListener("touchend", handleProgressbarDragEnd);
 }
 
 function handleProgressbarDragStart() {

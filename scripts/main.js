@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector("#player-thumbnail").addEventListener("click", toggleThumbnail);
 
+    addProgressbarEventListeners();
 });
 
 function get_videoID() {
