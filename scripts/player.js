@@ -93,3 +93,19 @@ function toggleThumbnail() {
 
     }, 50);
 }
+
+function addProgressbarEventListeners() {
+    const progress = document.querySelector("#player-progress-bar");
+}
+
+function handleProgressbarDragStart() {
+    console.log("Progressbar dragging Started.");
+}
+
+function handleProgressbarDragEnd() {
+    console.log("Progressbar dragging Ended.");
+}
+
+function handleProgressbarChange() {
+    console.log("Progressbar changed.");
+}
