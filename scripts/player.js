@@ -38,14 +38,22 @@ function toggleThumbnail() {
         const iframe = document.querySelector(".player-iframe-container");
         const img = document.querySelector(".player-thumbnail-img-container");
 
-        if (videoVisible) {
-            iframe.style.display = "none";
-            img.style.display = "block";
+        if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+            if (videoVisible) {
+                iframe.style.display = "none";
+                img.style.display = "block";
+            }
+            else {
+                iframe.style.display = "block";
+                img.style.display = "none";
+            }
+            videoVisible = !videoVisible;
         }
         else {
-            iframe.style.display = "block";
-            img.style.display = "none";
+            iframe.style.display = "none";
+            img.style.display = "block";
+            videoVisible = false;
         }
-        videoVisible = !videoVisible;
+
     }, 50);
 }
