@@ -8,10 +8,6 @@
     position: relative;
 }
 
-#player-iframe {
-    display: none;
-}
-
 .player-background {
     position: absolute;
     top: 0;
@@ -42,18 +38,38 @@
 
 .player-thumbnail {
     background-color: black;
-    border-radius: 1rem;
+    --thumbnail-border-radius: 1rem;
+    border-radius: var(--thumbnail-border-radius);
     aspect-ratio: 1;
     width: 100%;
     box-shadow: rgba(255, 255, 255, 0.5) 0 0 2rem 0;
 }
 
-.player-thumbnail > img {
+.player-thumbnail-content {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    overflow: hidden;
+    border-radius: var(--thumbnail-border-radius);
 
-    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.player-iframe-container {
+    display: none;
+    aspect-ratio: 16 / 9;
+    height: 100%;
+}
+#player-iframe {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#player-thumbnail-img {
+    height: 100%;
 }
 
 .player-title {
