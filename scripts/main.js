@@ -14,20 +14,21 @@ document.addEventListener("DOMContentLoaded", () => {
         thumbnailContent.classList.remove("blink-animation");
         setTimeout(() => {
             thumbnailContent.classList.add("blink-animation");
+            
+            const iframe = document.querySelector(".player-iframe-container");
+            const img = document.querySelector("#player-thumbnail-img");
+    
+            if (videoVisible) {
+                iframe.style.display = "none";
+                img.style.display = "block";
+            }
+            else {
+                iframe.style.display = "block";
+                img.style.display = "none";
+            }
+            videoVisible = !videoVisible;
         }, 50);
 
-        const iframe = document.querySelector(".player-iframe-container");
-        const img = document.querySelector("#player-thumbnail-img");
-
-        if (videoVisible) {
-            iframe.style.display = "none";
-            img.style.display = "block";
-        }
-        else {
-            iframe.style.display = "block";
-            img.style.display = "none";
-        }
-        videoVisible = !videoVisible;
     });
 });
 
