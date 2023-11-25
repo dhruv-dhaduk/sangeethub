@@ -25,8 +25,20 @@ function onPlayerReady(event) {
 
 function onPlayerStateChange(event) {
     const stat = player.getPlayerState();
-    if (stat !== YT.PlayerState.PLAYING && stat != YT.PlayerState.BUFFERING && videoVisible)
+
+    const actualPlaying = stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING;
+
+    if (!actualPlaying && videoVisible)
         toggleThumbnail();
+
+    const playpauseIcon = document.querySelector("#player-btn-playpause-img");
+
+    if (actualPlaying) {
+        playpauseIcon.src = pauseLogoURL;
+    }
+    else {
+        playpauseIcon.src = playLogoURL;
+    }
 }
 
 let videoVisible = false;

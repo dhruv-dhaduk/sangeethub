@@ -1,3 +1,6 @@
+const playLogoURL = "https://dhruv-dhaduk.github.io/assets/logos/white/play_white.png";
+const pauseLogoURL = "https://dhruv-dhaduk.github.io/assets/logos/white/pause_white.png";
+
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("img").forEach((img) => {
         img.addEventListener("contextmenu", (e) => { e.preventDefault(); });
@@ -8,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.querySelector("#player-thumbnail").addEventListener("click", toggleThumbnail);
-    
+
 });
 
 function get_videoID() {
