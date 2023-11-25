@@ -24,7 +24,9 @@ function onPlayerReady(event) {
 }
 
 function onPlayerStateChange(event) {
-    console.log(`Player state changed : ${event}`);
+    const stat = player.getPlayerState();
+    if (stat !== YT.PlayerState.PLAYING && stat != YT.PlayerState.BUFFERING && videoVisible)
+        toggleThumbnail();
 }
 
 let videoVisible = false;
@@ -38,7 +40,8 @@ function toggleThumbnail() {
         const iframe = document.querySelector(".player-iframe-container");
         const img = document.querySelector(".player-thumbnail-img-container");
 
-        if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+        const stat = player.getPlayerState();
+        if (stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING) {
             if (videoVisible) {
                 iframe.style.display = "none";
                 img.style.display = "block";
