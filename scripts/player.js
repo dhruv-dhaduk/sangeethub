@@ -26,3 +26,26 @@ function onPlayerReady(event) {
 function onPlayerStateChange(event) {
     console.log(`Player state changed : ${event}`);
 }
+
+let videoVisible = false;
+function toggleThumbnail() {
+    const thumbnailContent = document.querySelector(".player-thumbnail-content");
+    thumbnailContent.classList.remove("blink-animation");
+    
+    setTimeout(() => {
+        thumbnailContent.classList.add("blink-animation");
+
+        const iframe = document.querySelector(".player-iframe-container");
+        const img = document.querySelector(".player-thumbnail-img-container");
+
+        if (videoVisible) {
+            iframe.style.display = "none";
+            img.style.display = "block";
+        }
+        else {
+            iframe.style.display = "block";
+            img.style.display = "none";
+        }
+        videoVisible = !videoVisible;
+    }, 50);
+}
