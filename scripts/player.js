@@ -18,9 +18,13 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
     document.querySelector("#player-title").innerHTML = player.videoTitle;
+
     const duration = convertTime(player.getDuration());
     if (duration)
         document.querySelector("#player-duration").innerHTML = duration;
+    const progressBar = document.querySelector("#player-progress-bar");
+    progressBar.max = Math.floor(player.getDuration());
+    progressBar.value = 0;
 
     const thumbnail = `https://img.youtube.com/vi/${videoID}/maxresdefault.jpg`
     document.querySelector("#player-thumbnail-img").src = thumbnail;
@@ -51,6 +55,7 @@ function onPlayerStateChange(event) {
 }
 
 function updateCurrentTime() {
+    document.querySelector("#player-progress-bar").value = Math.floor(player.getCurrentTime());
     const currentTime = convertTime(player.getCurrentTime());
     if (currentTime) {
         document.querySelector("#player-current-time").innerHTML = currentTime;
