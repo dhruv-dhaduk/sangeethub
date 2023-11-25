@@ -1,6 +1,14 @@
 let player;
 let timeUpdateITV;
 
+let progressBar;
+let currentTimePara;
+
+document.addEventListener("DOMContentLoaded", () => {
+    progressBar = document.querySelector("#player-progress-bar");
+    currentTimePara = document.querySelector("#player-current-time");
+});
+
 function onYouTubeIframeAPIReady() {
     player = new YT.Player("player-iframe", {
         height: '390',
@@ -107,13 +115,17 @@ function addProgressbarEventListeners() {
 }
 
 function handleProgressbarDragStart() {
-    console.log("Progressbar dragging Started.");
+    clearInterval(timeUpdateITV);
 }
 
 function handleProgressbarDragEnd() {
-    console.log("Progressbar dragging Ended.");
+    player.seekTo(progressBar.value, true);
+    currentTimePara.innerHTML = convertTime(progressBar.value);
+    
+    clearInterval(timeUpdateITV);
+    timeUpdateITV = setInterval(updateCurrentTime, 500);
 }
 
 function handleProgressbarChange() {
-    console.log("Progressbar changed.");
+    currentTimePara.innerHTML = convertTime(progressBar.value);
 }
