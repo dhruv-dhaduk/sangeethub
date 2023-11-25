@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#player-btn-playpause").addEventListener("click", () => {
         player.playVideo();
     });
+
+    document.querySelector("#player-thumbnail").addEventListener("click", toggleThumbnail);
+    
 });
 
 function get_videoID() {
