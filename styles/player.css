@@ -138,6 +138,8 @@
     --progress-bar-color:  #8fd2ff;
     
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
     height: 0.2rem;
     border-radius: 0.1rem;
     accent-color: var(--progress-bar-color);
