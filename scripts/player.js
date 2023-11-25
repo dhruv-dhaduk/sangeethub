@@ -1,4 +1,5 @@
 let player;
+let timeUpdateITV;
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player("player-iframe", {
@@ -41,6 +42,13 @@ function onPlayerStateChange(event) {
     }
     else {
         playpauseIcon.src = playLogoURL;
+    }
+}
+
+function updateCurrentTime() {
+    const currentTime = convertTime(player.getCurrentTime());
+    if (currentTime) {
+        document.querySelector("#player-current-time").innerHTML = currentTime;
     }
 }
 

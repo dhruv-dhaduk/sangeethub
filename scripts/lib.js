@@ -18,7 +18,7 @@ function convertTime(time) {
 
     const hoursStr = hours > 0 ? hours + ":" : "";
     const minsStr = mins >= 0 && mins < 10 ? '0' + mins + ':' : mins + ':';
-    const secondsStr = seconds >= 0 && seconds < 10 ? '0' + seconds + ':' : String(seconds);
+    const secondsStr = seconds >= 0 && seconds < 10 ? '0' + seconds : String(seconds);
 
     return hoursStr + minsStr + secondsStr;
 }
