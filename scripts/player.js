@@ -56,6 +56,12 @@ function onPlayerStateChange(event) {
     if (actualPlaying) {
         
         if (isCued) {
+            setTimeout(() => {
+                toggleThumbnail();
+                setTimeout(() => {
+                    toggleThumbnail();
+                }, 3000);
+            }, 3000);
             isCued = false;
         }
 
