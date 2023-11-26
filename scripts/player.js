@@ -1,6 +1,6 @@
 let player;
 let timeUpdateITV;
-let isCued = true;
+let isNewVideo = true;
 
 let progressBar;
 let currentTimePara;
@@ -14,7 +14,6 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player("player-iframe", {
         height: '390',
         width: '640',
-        videoId: videoID,
         playerVars: {
             'playsinline': 1,
             'controls': 0,
@@ -30,26 +29,40 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
     player.setVolume(100);
-
-    document.querySelector("#player-title").innerHTML = player.videoTitle;
-
-    const duration = convertTime(player.getDuration());
-    if (duration)
-        document.querySelector("#player-duration").innerHTML = duration;
-    const progressBar = document.querySelector("#player-progress-bar");
-    progressBar.max = Math.floor(player.getDuration());
-    progressBar.value = 0;
-
-    const thumbnail = `https://img.youtube.com/vi/${videoID}/maxresdefault.jpg`
-    document.querySelector("#player-thumbnail-img").src = thumbnail;
-    document.querySelector("#player-background-img").src = thumbnail;
+    player.cuePlaylist(videoIDs, 0, 0);
 }
 
 function onPlayerStateChange(event) {
     const stat = player.getPlayerState();
+    console.log(stat);
     
     if (stat === YT.PlayerState.ENDED)
         window.location.reload();
+
+    if(stat === YT.PlayerState.UNSTARTED){
+        const videoDataUpdateITV = setInterval(() => {
+            if (player.getDuration() <= 0)
+                return;
+
+            document.querySelector("#player-title").innerHTML = player.videoTitle;
+            console.log(`Player Title : ${player.videoTitle}`);
+            console.log(`Duration : ${player.getDuration()}`);
+            const duration = convertTime(player.getDuration());
+            if (duration)
+                document.querySelector("#player-duration").innerHTML = duration;
+            const progressBar = document.querySelector("#player-progress-bar");
+            progressBar.max = Math.floor(player.getDuration());
+
+            clearInterval(videoDataUpdateITV);
+        }, 100);
+
+
+        const currentVideoID = player.getPlaylist()[player.getPlaylistIndex()];
+
+        const thumbnail = `https://img.youtube.com/vi/${currentVideoID}/maxresdefault.jpg`
+        document.querySelector("#player-thumbnail-img").src = thumbnail;
+        document.querySelector("#player-background-img").src = thumbnail;
+    }
 
     const actualPlaying = stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING;
 
@@ -60,7 +73,7 @@ function onPlayerStateChange(event) {
 
     if (actualPlaying) {
         
-        if (isCued) {
+        if (isNewVideo) {
             const firstToggleITV = setInterval(() => {
                 if (player.getCurrentTime() >= 2.5) {
                     toggleThumbnail();
@@ -70,7 +83,7 @@ function onPlayerStateChange(event) {
                     clearInterval(firstToggleITV);
                 }
             }, 500);
-            isCued = false;
+            isNewVideo = false;
         }
 
         playpauseIcon.src = pauseLogoURL;

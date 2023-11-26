@@ -22,22 +22,17 @@ document.addEventListener("DOMContentLoaded", () => {
     addProgressbarEventListeners();
 });
 
-function get_videoID() {
+const videoIDs = [
+    "TxidFkYHDfI",
+    "RfjPHmgBPF0",
+    "1ZrZeA8j15w",
+    "NVLpJBGVfSw",
+    "Tl4bQBfOtbg",
+    "Jv8KRwF1zQs",
+    "uv9Dv6fzg9w",
+    "ejunflwgquc",
+    "bD5msFH9gpU",
+    "EatzcaVJRMs"
+];
 
-    const videoIDs = [
-        "TxidFkYHDfI",
-        "RfjPHmgBPF0",
-        "1ZrZeA8j15w",
-        "NVLpJBGVfSw",
-        "Tl4bQBfOtbg",
-        "Jv8KRwF1zQs",
-        "uv9Dv6fzg9w",
-        "ejunflwgquc",
-        "bD5msFH9gpU",
-        "EatzcaVJRMs"
-    ];
-
-    return videoIDs[Math.floor(Math.random() * videoIDs.length)];
-}
-
-const videoID = get_videoID();
+const videoID = videoIDs[Math.floor(Math.random() * videoIDs.length)];
