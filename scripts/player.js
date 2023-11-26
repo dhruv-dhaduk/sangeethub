@@ -29,6 +29,8 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady(event) {
+    player.setVolume(100);
+
     document.querySelector("#player-title").innerHTML = player.videoTitle;
 
     const duration = convertTime(player.getDuration());
