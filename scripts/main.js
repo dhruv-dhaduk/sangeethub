@@ -44,5 +44,3 @@ const videoIDs = [
     "bD5msFH9gpU",
     "EatzcaVJRMs"
 ];
-
-const videoID = videoIDs[Math.floor(Math.random() * videoIDs.length)];
