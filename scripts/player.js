@@ -99,7 +99,10 @@ function updateCurrentTime() {
 }
 
 let videoVisible = false;
-function toggleThumbnail() {
+function toggleThumbnail(hideVideo) {
+    if (hideVideo === undefined || (hideVideo !== true && hideVideo !== false))
+        hideVideo = false;
+
     const thumbnailContent = document.querySelector(".player-thumbnail-content");
     thumbnailContent.classList.remove("blink-animation");
     
@@ -109,23 +112,31 @@ function toggleThumbnail() {
         const iframe = document.querySelector(".player-iframe-container");
         const img = document.querySelector(".player-thumbnail-img-container");
 
-        const stat = player.getPlayerState();
-        if (stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING) {
-            if (videoVisible) {
-                iframe.style.display = "none";
-                img.style.display = "block";
-            }
-            else {
-                iframe.style.display = "block";
-                img.style.display = "none";
-            }
-            videoVisible = !videoVisible;
-        }
-        else {
+        if (hideVideo) {
             iframe.style.display = "none";
             img.style.display = "block";
             videoVisible = false;
         }
+        else  {
+            const stat = player.getPlayerState();
+            if (stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING) {
+                if (videoVisible) {
+                    iframe.style.display = "none";
+                    img.style.display = "block";
+                }
+                else {
+                    iframe.style.display = "block";
+                    img.style.display = "none";
+                }
+                videoVisible = !videoVisible;
+            }
+            else {
+                iframe.style.display = "none";
+                img.style.display = "block";
+                videoVisible = false;
+            }
+        }
+
 
     }, 50);
 }
