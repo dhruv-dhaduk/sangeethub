@@ -16,7 +16,10 @@ function onYouTubeIframeAPIReady() {
         width: '640',
         videoId: videoID,
         playerVars: {
-            'playsinline': 1
+            'playsinline': 1,
+            'controls': 0,
+            'disablekb': 1,
+            'fs': 0
         },
         events: {
             'onReady': onPlayerReady,
