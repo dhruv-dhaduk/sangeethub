@@ -44,8 +44,7 @@ function onPlayerStateChange(event) {
                 return;
 
             document.querySelector("#player-title").innerHTML = player.videoTitle;
-            console.log(`Player Title : ${player.videoTitle}`);
-            console.log(`Duration : ${player.getDuration()}`);
+
             const duration = convertTime(player.getDuration());
             if (duration)
                 document.querySelector("#player-duration").innerHTML = duration;
