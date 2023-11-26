@@ -34,7 +34,6 @@ function onPlayerReady(event) {
 
 function onPlayerStateChange(event) {
     const stat = player.getPlayerState();
-    console.log(stat);
     
     if (stat === YT.PlayerState.ENDED)
         window.location.reload();
