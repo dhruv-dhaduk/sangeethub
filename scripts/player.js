@@ -1,5 +1,6 @@
 let player;
 let timeUpdateITV;
+let isCued = true;
 
 let progressBar;
 let currentTimePara;
@@ -53,6 +54,11 @@ function onPlayerStateChange(event) {
     const playpauseIcon = document.querySelector("#player-btn-playpause-img");
 
     if (actualPlaying) {
+        
+        if (isCued) {
+            isCued = false;
+        }
+
         playpauseIcon.src = pauseLogoURL;
 
         clearInterval(timeUpdateITV);
