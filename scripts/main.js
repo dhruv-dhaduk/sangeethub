@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
             player.playVideo();
     });
 
+    document.querySelector("#player-btn-previous").addEventListener("click", () => { window.location.reload(); });
+    document.querySelector("#player-btn-next").addEventListener("click", () => { window.location.reload(); });
+
     document.querySelector("#player-thumbnail").addEventListener("click", toggleThumbnail);
 
     addProgressbarEventListeners();
