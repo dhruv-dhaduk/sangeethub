@@ -8,6 +8,8 @@ let currentTimePara;
 document.addEventListener("DOMContentLoaded", () => {
     progressBar = document.querySelector("#player-progress-bar");
     currentTimePara = document.querySelector("#player-current-time");
+
+    progressBar.value = 0;
 });
 
 function onYouTubeIframeAPIReady() {
