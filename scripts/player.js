@@ -1,6 +1,5 @@
 let player;
 let timeUpdateITV;
-let isNewVideo = true;
 
 let progressBar;
 let currentTimePara;
@@ -72,20 +71,6 @@ function onPlayerStateChange(event) {
     const playpauseIcon = document.querySelector("#player-btn-playpause-img");
 
     if (actualPlaying) {
-        
-        if (isNewVideo) {
-            const firstToggleITV = setInterval(() => {
-                if (player.getCurrentTime() >= 2.5) {
-                    toggleThumbnail();
-                    setTimeout(() => {
-                        toggleThumbnail();
-                    }, 2500);
-                    clearInterval(firstToggleITV);
-                }
-            }, 500);
-            isNewVideo = false;
-        }
-
         playpauseIcon.src = pauseLogoURL;
 
         clearInterval(timeUpdateITV);
