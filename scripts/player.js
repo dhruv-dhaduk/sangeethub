@@ -56,12 +56,15 @@ function onPlayerStateChange(event) {
     if (actualPlaying) {
         
         if (isCued) {
-            setTimeout(() => {
-                toggleThumbnail();
-                setTimeout(() => {
+            const firstToggleITV = setInterval(() => {
+                if (player.getCurrentTime() >= 2.5) {
                     toggleThumbnail();
-                }, 3000);
-            }, 3000);
+                    setTimeout(() => {
+                        toggleThumbnail();
+                    }, 2500);
+                    clearInterval(firstToggleITV);
+                }
+            }, 500);
             isCued = false;
         }
 
