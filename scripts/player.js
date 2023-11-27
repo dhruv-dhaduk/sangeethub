@@ -13,29 +13,18 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function onYouTubeIframeAPIReady() {
-    player = new YT.Player("player-iframe", {
-        height: '390',
-        width: '640',
-        playerVars: {
-            'playsinline': 1,
-            'controls': 0,
-            'disablekb': 1,
-            'fs': 0
-        },
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-        }
-    });
+    currentVideoIndex = Math.floor(Math.random() * (videoIDs.length));
+
+    playMusic(videoIDs[currentVideoIndex]);
 }
 
 function onPlayerReady(event) {
     player.setVolume(100);
 
-    currentVideoIndex = Math.floor(Math.random() * (videoIDs.length));
-    player.cueVideoById(videoIDs[currentVideoIndex], 0);
-
     updateMetaData();
+    toggleThumbnail(true);
+
+    player.playVideo();
 }
 
 function onPlayerStateChange(event) {
@@ -107,27 +96,43 @@ function updateMetaData() {
     document.querySelector("#player-background-img").src = thumbnail;
 }
 
+function playMusic(id) {
+    if (player)
+        player.destroy();
+
+    player = new YT.Player("player-iframe", {
+        height: '390',
+        width: '640',
+        videoId: id,
+
+        playerVars: {
+            'playsinline': 1,
+            'controls': 0,
+            'disablekb': 1,
+            'fs': 0
+        },
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
+    });
+}
+
 function playPreviousMusic() {
     if (currentVideoIndex <= 0)
         currentVideoIndex = videoIDs.length - 1;
     else
         currentVideoIndex--;
 
-    player.loadVideoById(videoIDs[currentVideoIndex], 0);
-    updateMetaData();
-
-    toggleThumbnail(true);
+    playMusic(videoIDs[currentVideoIndex]);
 }
 function playNextMusic() {
     if (currentVideoIndex >= videoIDs.length - 1)
         currentVideoIndex = 0;
     else
         currentVideoIndex++;
-    
-    player.loadVideoById(videoIDs[currentVideoIndex], 0);
-    updateMetaData();
 
-    toggleThumbnail(true);
+    playMusic(videoIDs[currentVideoIndex]);
 }
 
 let videoVisible = false;
