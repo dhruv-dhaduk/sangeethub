@@ -5,11 +5,15 @@ let timeUpdateITV;
 let progressBar;
 let currentTimePara;
 
+let iframe;
+
 document.addEventListener("DOMContentLoaded", () => {
     progressBar = document.querySelector("#player-progress-bar");
     currentTimePara = document.querySelector("#player-current-time");
 
     progressBar.value = 0;
+
+    iframe = document.querySelector(".player-iframe-container");
 });
 
 function onYouTubeIframeAPIReady() {
@@ -42,7 +46,7 @@ function onPlayerStateChange(event) {
     const stat = player.getPlayerState();
     
     if (stat === YT.PlayerState.ENDED)
-        window.location.reload();
+        playNextMusic();
 
     const actualPlaying = stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING;
 
@@ -86,11 +90,15 @@ function updateMetaData() {
 
         document.querySelector("#player-title").innerHTML = player.videoTitle;
 
+        const currentTime = convertTime(player.getCurrentTime());
         const duration = convertTime(player.getDuration());
         if (duration)
             document.querySelector("#player-duration").innerHTML = duration;
+        if (currentTime)
+            document.querySelector("#player-current-time").innerHTML = currentTime;
         const progressBar = document.querySelector("#player-progress-bar");
         progressBar.max = Math.floor(player.getDuration());
+        progressBar.value = Math.floor(player.getCurrentTime());
 
         clearInterval(videoDataUpdateITV);
     }, 100);
@@ -101,6 +109,25 @@ function updateMetaData() {
     const thumbnail = `https://img.youtube.com/vi/${currentVideoID}/maxresdefault.jpg`
     document.querySelector("#player-thumbnail-img").src = thumbnail;
     document.querySelector("#player-background-img").src = thumbnail;
+}
+
+function playPreviousMusic() {
+    if (currentVideoIndex <= 0)
+        currentVideoIndex = videoIDs.length - 1;
+    else
+        currentVideoIndex--;
+
+    player.loadVideoById(videoIDs[currentVideoIndex], 0);
+    updateMetaData();
+}
+function playNextMusic() {
+    if (currentVideoIndex >= videoIDs.length - 1)
+        currentVideoIndex = 0;
+    else
+        currentVideoIndex++;
+    
+    player.loadVideoById(videoIDs[currentVideoIndex], 0);
+    updateMetaData();
 }
 
 let videoVisible = false;
