@@ -163,6 +163,7 @@ function playNextMusic() {
 
 let videoVisible = false;
 function toggleThumbnail(hideVideo) {
+    // return;
     if (hideVideo === undefined || (hideVideo !== true && hideVideo !== false))
         hideVideo = false;
 
@@ -172,30 +173,25 @@ function toggleThumbnail(hideVideo) {
     setTimeout(() => {
         thumbnailContent.classList.add("blink-animation");
 
-        const iframe = document.querySelector(".player-iframe-container");
-        const img = document.querySelector(".player-thumbnail-img-container");
+        const thumbnailImg = document.querySelector("#player-thumbnail-img");
 
         if (hideVideo) {
-            iframe.style.display = "none";
-            img.style.display = "block";
+            thumbnailImg.style.opacity = 1;
             videoVisible = false;
         }
         else  {
             const stat = player.getPlayerState();
             if (stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING) {
                 if (videoVisible) {
-                    iframe.style.display = "none";
-                    img.style.display = "block";
+                    thumbnailImg.style.opacity = 1;
                 }
                 else {
-                    iframe.style.display = "block";
-                    img.style.display = "none";
+                    thumbnailImg.style.opacity = 0;
                 }
                 videoVisible = !videoVisible;
             }
             else {
-                iframe.style.display = "none";
-                img.style.display = "block";
+                thumbnailImg.style.opacity = 1;
                 videoVisible = false;
             }
         }
