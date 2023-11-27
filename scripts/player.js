@@ -100,22 +100,34 @@ function playMusic(id) {
     if (player)
         player.destroy();
 
-    player = new YT.Player("player-iframe", {
-        height: '390',
-        width: '640',
-        videoId: id,
+    const iframeContainer = document.querySelector(".player-iframe-container");
+    iframeContainer.innerHTML = "";
+    const iframeElement = document.createElement("div");
+    iframeElement.id = "player-iframe";
 
-        playerVars: {
-            'playsinline': 1,
-            'controls': 0,
-            'disablekb': 1,
-            'fs': 0
-        },
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-        }
-    });
+    iframeContainer.appendChild(iframeElement);
+
+    setTimeout(() => {
+
+        player = new YT.Player("player-iframe", {
+            height: '390',
+            width: '640',
+            videoId: id,
+    
+            playerVars: {
+                'playsinline': 1,
+                'controls': 0,
+                'disablekb': 1,
+                'fs': 0
+            },
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            }
+        });
+        
+    }, 50);
+
 }
 
 function playPreviousMusic() {
