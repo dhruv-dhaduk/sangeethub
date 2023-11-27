@@ -163,9 +163,17 @@ function playNextMusic() {
 
 let videoVisible = false;
 function toggleThumbnail(hideVideo) {
-    // return;
+    
     if (hideVideo === undefined || (hideVideo !== true && hideVideo !== false))
         hideVideo = false;
+
+    const thumbnailImg = document.querySelector("#player-thumbnail-img");
+
+    if (hideVideo) {
+        thumbnailImg.style.opacity = 1;
+        videoVisible = false;
+        return;
+    }
 
     const thumbnailContent = document.querySelector(".player-thumbnail-content");
     thumbnailContent.classList.remove("blink-animation");
@@ -173,29 +181,20 @@ function toggleThumbnail(hideVideo) {
     setTimeout(() => {
         thumbnailContent.classList.add("blink-animation");
 
-        const thumbnailImg = document.querySelector("#player-thumbnail-img");
-
-        if (hideVideo) {
+        const stat = player.getPlayerState();
+        if (stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING) {
+            if (videoVisible) {
+                thumbnailImg.style.opacity = 1;
+            }
+            else {
+                thumbnailImg.style.opacity = 0;
+            }
+            videoVisible = !videoVisible;
+        }
+        else {
             thumbnailImg.style.opacity = 1;
             videoVisible = false;
         }
-        else  {
-            const stat = player.getPlayerState();
-            if (stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING) {
-                if (videoVisible) {
-                    thumbnailImg.style.opacity = 1;
-                }
-                else {
-                    thumbnailImg.style.opacity = 0;
-                }
-                videoVisible = !videoVisible;
-            }
-            else {
-                thumbnailImg.style.opacity = 1;
-                videoVisible = false;
-            }
-        }
-
 
     }, 50);
 }
