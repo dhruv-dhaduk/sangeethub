@@ -15,16 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.querySelector("#player-btn-previous").addEventListener("click", () => {
-        if (player.getPlaylistIndex() > 0) {
-            toggleThumbnail(true);
-            player.previousVideo();
-        }
+        window.location.reload();
     });
     document.querySelector("#player-btn-next").addEventListener("click", () => {
-        if (player.getPlaylistIndex() < player.getPlaylist().length - 1) {
-            toggleThumbnail(true);
-            player.nextVideo();
-        }
+        window.location.reload();
     });
 
     document.querySelector("#player-thumbnail").addEventListener("click", toggleThumbnail);
