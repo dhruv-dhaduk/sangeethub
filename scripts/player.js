@@ -5,15 +5,11 @@ let timeUpdateITV;
 let progressBar;
 let currentTimePara;
 
-let iframe;
-
 document.addEventListener("DOMContentLoaded", () => {
     progressBar = document.querySelector("#player-progress-bar");
     currentTimePara = document.querySelector("#player-current-time");
 
     progressBar.value = 0;
-
-    iframe = document.querySelector(".player-iframe-container");
 });
 
 function onYouTubeIframeAPIReady() {
