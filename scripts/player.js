@@ -13,7 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function onYouTubeIframeAPIReady() {
-    currentVideoIndex = Math.floor(Math.random() * (videoIDs.length));
+    let currentVideoIndexSTORED = Math.floor(Number(localStorage.getItem("currentVideoIndex")));
+    if (!currentVideoIndexSTORED || currentVideoIndexSTORED < 0)
+        currentVideoIndexSTORED = Math.floor(Math.random() * (videoIDs.length));
+
+    currentVideoIndex = currentVideoIndexSTORED;
 
     playMusic(videoIDs[currentVideoIndex]);
 }
@@ -66,6 +70,7 @@ function updateCurrentTime() {
     if (currentTime) {
         document.querySelector("#player-current-time").innerHTML = currentTime;
     }
+    localStorage.setItem("currentTime", player.getCurrentTime());
 }
 
 function updateMetaData() {
@@ -109,6 +114,12 @@ function playMusic(id) {
 
     setTimeout(() => {
 
+        localStorage.setItem("currentVideoIndex", videoIDs.indexOf(id));
+
+        let currentTimeSTORED = Math.floor(Number(localStorage.getItem("currentTime")));
+        if (!currentTimeSTORED || currentTimeSTORED < 0)    
+            currentTimeSTORED = 0;
+
         player = new YT.Player("player-iframe", {
             height: '390',
             width: '640',
@@ -118,14 +129,15 @@ function playMusic(id) {
                 'playsinline': 1,
                 'controls': 0,
                 'disablekb': 1,
-                'fs': 0
+                'fs': 0,
+                'start': currentTimeSTORED
             },
             events: {
                 'onReady': onPlayerReady,
                 'onStateChange': onPlayerStateChange
             }
         });
-        
+
     }, 50);
 
 }
@@ -136,6 +148,7 @@ function playPreviousMusic() {
     else
         currentVideoIndex--;
 
+    localStorage.removeItem("currentTime");
     playMusic(videoIDs[currentVideoIndex]);
 }
 function playNextMusic() {
@@ -144,6 +157,7 @@ function playNextMusic() {
     else
         currentVideoIndex++;
 
+    localStorage.removeItem("currentTime");
     playMusic(videoIDs[currentVideoIndex]);
 }
 
