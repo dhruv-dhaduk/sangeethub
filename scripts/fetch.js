@@ -21,15 +21,29 @@ async function fetchVideoIDs() {
     return ids;
 }
 
-const videoIDs = [
-    "TxidFkYHDfI",
-    "RfjPHmgBPF0",
-    "1ZrZeA8j15w",
-    "NVLpJBGVfSw",
-    "Tl4bQBfOtbg",
-    "Jv8KRwF1zQs",
-    "uv9Dv6fzg9w",
-    "ejunflwgquc",
-    "bD5msFH9gpU",
-    "EatzcaVJRMs"
-];
+let fetchStatus = 0;
+let videoIDs;
+
+fetchVideoIDs()
+.then((ids) => {
+    videoIDs = ids;
+    fetchStatus = 1;
+})
+.catch((err) => {
+    console.log(`COULDN'T FETCH DATA : ${err}`);
+    alert("Couldn't fetch data");
+    fetchStatus = -1;
+});
+
+// const videoIDs = [
+//     "TxidFkYHDfI",
+//     "RfjPHmgBPF0",
+//     "1ZrZeA8j15w",
+//     "NVLpJBGVfSw",
+//     "Tl4bQBfOtbg",
+//     "Jv8KRwF1zQs",
+//     "uv9Dv6fzg9w",
+//     "ejunflwgquc",
+//     "bD5msFH9gpU",
+//     "EatzcaVJRMs"
+// ];

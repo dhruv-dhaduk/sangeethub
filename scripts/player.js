@@ -13,33 +13,42 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function onYouTubeIframeAPIReady() {
-    
-    let currentTimeSTORED = Math.floor(Number(localStorage.getItem("currentTime")));
-    if (!currentTimeSTORED || currentTimeSTORED < 0)
-        currentTimeSTORED = 0;
 
-    let currentDurationSTORED = Math.floor(Number(localStorage.getItem("currentDuration")));
-    if (!currentDurationSTORED || currentDurationSTORED < 0)
-        currentDurationSTORED = 0;
-
-    progressBar.value =  currentTimeSTORED;
-    progressBar.max = currentDurationSTORED;
-
-    const currentVideoIDSTORED = localStorage.getItem("currentVideoID");
-
-    currentVideoIndex = Math.floor(Math.random() * (videoIDs.length));
-
-    if (currentVideoIDSTORED) {
-        const i = videoIDs.indexOf(currentVideoIDSTORED);
-        if (i !== -1) {
-            currentVideoIndex = i;
+    const fetchWaitITV = setInterval(() => {
+        if (fetchStatus === -1) {
+            clearInterval(fetchWaitITV);
         }
-        else {
-            currentTimeSTORED = 0;
-        }
-    }
+        else if (fetchStatus === 1) {
+            let currentTimeSTORED = Math.floor(Number(localStorage.getItem("currentTime")));
+            if (!currentTimeSTORED || currentTimeSTORED < 0)
+                currentTimeSTORED = 0;
 
-    playMusic(videoIDs[currentVideoIndex], currentTimeSTORED);
+            let currentDurationSTORED = Math.floor(Number(localStorage.getItem("currentDuration")));
+            if (!currentDurationSTORED || currentDurationSTORED < 0)
+                currentDurationSTORED = 0;
+
+            progressBar.value =  currentTimeSTORED;
+            progressBar.max = currentDurationSTORED;
+
+            const currentVideoIDSTORED = localStorage.getItem("currentVideoID");
+
+            currentVideoIndex = Math.floor(Math.random() * (videoIDs.length));
+
+            if (currentVideoIDSTORED) {
+                const i = videoIDs.indexOf(currentVideoIDSTORED);
+                if (i !== -1) {
+                    currentVideoIndex = i;
+                }
+                else {
+                    currentTimeSTORED = 0;
+                }
+            }
+
+            playMusic(videoIDs[currentVideoIndex], currentTimeSTORED);
+
+            clearInterval(fetchWaitITV);
+        }
+    }, 100);
 }
 
 function onPlayerReady(event) {
@@ -101,6 +110,9 @@ function onPlayerStateChange(event) {
 }
 
 function updateCurrentTime() {
+    if (!player)
+        return;
+
     document.querySelector("#player-progress-bar").value = Math.floor(player.getCurrentTime());
     const currentTime = convertTime(player.getCurrentTime());
     if (currentTime) {
