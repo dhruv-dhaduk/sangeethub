@@ -13,15 +13,31 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function onYouTubeIframeAPIReady() {
-    let currentVideoIndexSTORED = Math.floor(Number(localStorage.getItem("currentVideoIndex")));
-    if (!currentVideoIndexSTORED || currentVideoIndexSTORED < 0)
-        currentVideoIndexSTORED = Math.floor(Math.random() * (videoIDs.length));
-
-    currentVideoIndex = currentVideoIndexSTORED;
-
+    
     let currentTimeSTORED = Math.floor(Number(localStorage.getItem("currentTime")));
-    if (!currentTimeSTORED || currentTimeSTORED < 0)    
+    if (!currentTimeSTORED || currentTimeSTORED < 0)
         currentTimeSTORED = 0;
+
+    let currentDurationSTORED = Math.floor(Number(localStorage.getItem("currentDuration")));
+    if (!currentDurationSTORED || currentDurationSTORED < 0)
+        currentDurationSTORED = 0;
+
+    progressBar.value =  currentTimeSTORED;
+    progressBar.max = currentDurationSTORED;
+
+    const currentVideoIDSTORED = localStorage.getItem("currentVideoID");
+
+    currentVideoIndex = Math.floor(Math.random() * (videoIDs.length));
+
+    if (currentVideoIDSTORED) {
+        const i = videoIDs.indexOf(currentVideoIDSTORED);
+        if (i !== -1) {
+            currentVideoIndex = i;
+        }
+        else {
+            currentTimeSTORED = 0;
+        }
+    }
 
     playMusic(videoIDs[currentVideoIndex], currentTimeSTORED);
 }
@@ -110,6 +126,8 @@ function updateMetaData() {
         progressBar.max = Math.floor(player.getDuration());
         progressBar.value = Math.floor(player.getCurrentTime());
 
+        localStorage.setItem("currentDuration", player.getDuration());
+
         clearInterval(videoDataUpdateITV);
     }, 100);
 
@@ -134,7 +152,7 @@ function playMusic(id, startTime) {
 
     setTimeout(() => {
 
-        localStorage.setItem("currentVideoIndex", videoIDs.indexOf(id));
+        localStorage.setItem("currentVideoID", id);
 
         player = new YT.Player("player-iframe", {
             height: '390',
