@@ -68,9 +68,6 @@ function onPlayerReady(event) {
         const stat = player.getPlayerState();
         if ((stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING) && player.getCurrentTime() > 2.5) {
             toggleThumbnail();
-            setTimeout(() => {
-                toggleThumbnail();
-            }, 2500);
             clearInterval(firstTimeToggleITV);  
         }
     }, 500);
