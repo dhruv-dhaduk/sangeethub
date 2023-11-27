@@ -19,7 +19,11 @@ function onYouTubeIframeAPIReady() {
 
     currentVideoIndex = currentVideoIndexSTORED;
 
-    playMusic(videoIDs[currentVideoIndex]);
+    let currentTimeSTORED = Math.floor(Number(localStorage.getItem("currentTime")));
+    if (!currentTimeSTORED || currentTimeSTORED < 0)    
+        currentTimeSTORED = 0;
+
+    playMusic(videoIDs[currentVideoIndex], currentTimeSTORED);
 }
 
 function onPlayerReady(event) {
@@ -118,7 +122,7 @@ function updateMetaData() {
     document.querySelector("#player-background-img").src = thumbnail;
 }
 
-function playMusic(id) {
+function playMusic(id, startTime) {
     if (player)
         player.destroy();
 
@@ -133,10 +137,6 @@ function playMusic(id) {
 
         localStorage.setItem("currentVideoIndex", videoIDs.indexOf(id));
 
-        let currentTimeSTORED = Math.floor(Number(localStorage.getItem("currentTime")));
-        if (!currentTimeSTORED || currentTimeSTORED < 0)    
-            currentTimeSTORED = 0;
-
         player = new YT.Player("player-iframe", {
             height: '390',
             width: '640',
@@ -147,7 +147,7 @@ function playMusic(id) {
                 'controls': 0,
                 'disablekb': 1,
                 'fs': 0,
-                'start': currentTimeSTORED
+                'start': startTime
             },
             events: {
                 'onReady': onPlayerReady,
@@ -165,8 +165,7 @@ function playPreviousMusic() {
     else
         currentVideoIndex--;
 
-    localStorage.removeItem("currentTime");
-    playMusic(videoIDs[currentVideoIndex]);
+    playMusic(videoIDs[currentVideoIndex], 0);
 }
 function playNextMusic() {
     if (currentVideoIndex >= videoIDs.length - 1)
@@ -174,8 +173,7 @@ function playNextMusic() {
     else
         currentVideoIndex++;
 
-    localStorage.removeItem("currentTime");
-    playMusic(videoIDs[currentVideoIndex]);
+    playMusic(videoIDs[currentVideoIndex], 0);
 }
 
 let videoVisible = false;
