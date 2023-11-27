@@ -43,7 +43,6 @@ function onPlayerReady(event) {
         const stat = player.getPlayerState();
         if ((stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING) && player.getCurrentTime() > 2.5) {
             toggleThumbnail();
-            console.log("TOGGLE");
             setTimeout(() => {
                 toggleThumbnail();
             }, 2500);
