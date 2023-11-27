@@ -119,6 +119,8 @@ function playPreviousMusic() {
 
     player.loadVideoById(videoIDs[currentVideoIndex], 0);
     updateMetaData();
+
+    toggleThumbnail(true);
 }
 function playNextMusic() {
     if (currentVideoIndex >= videoIDs.length - 1)
@@ -128,6 +130,8 @@ function playNextMusic() {
     
     player.loadVideoById(videoIDs[currentVideoIndex], 0);
     updateMetaData();
+
+    toggleThumbnail(true);
 }
 
 let videoVisible = false;
