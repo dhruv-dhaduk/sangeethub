@@ -15,11 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.querySelector("#player-btn-previous").addEventListener("click", () => {
-        // window.location.reload();
         playPreviousMusic();
     });
     document.querySelector("#player-btn-next").addEventListener("click", () => {
-        // window.location.reload();
         playNextMusic();
     });
 
