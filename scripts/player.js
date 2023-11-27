@@ -29,6 +29,23 @@ function onPlayerReady(event) {
     toggleThumbnail(true);
 
     player.playVideo();
+
+    let intervalCount = 0;
+    const firstTimeToggleITV = setInterval(() => {
+        if (intervalCount > 20) {
+            clearInterval(firstTimeToggleITV);
+            return;
+        }
+        const stat = player.getPlayerState();
+        if ((stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING) && player.getCurrentTime() > 2.5) {
+            toggleThumbnail();
+            console.log("TOGGLE");
+            setTimeout(() => {
+                toggleThumbnail();
+            }, 2500);
+            clearInterval(firstTimeToggleITV);  
+        }
+    }, 500);
 }
 
 function onPlayerStateChange(event) {
