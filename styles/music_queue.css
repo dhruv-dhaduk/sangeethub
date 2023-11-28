@@ -9,7 +9,7 @@
     margin: auto;
     left: 0;
     right: 0;
-    bottom: -100dvh;
+    bottom: -60dvh;
 }
 
 .music-queue-card > * {
@@ -79,7 +79,7 @@
 
 @keyframes position-bottom-up {
     0% {
-        bottom: -100dvh;
+        bottom: -60dvh;
     }
     100% {
         bottom: 1rem;
@@ -91,14 +91,14 @@
         bottom: 1rem;
     }
     100% {
-        bottom: -100dvh;
+        bottom: -60dvh;
     }
 }
 
 .hidden {
     animation-name: position-top-down;
     animation-duration: 500ms;
-    bottom: -100dvh;
+    bottom: -60dvh;
 }
 
 .showing {
