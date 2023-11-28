@@ -25,3 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     addProgressbarEventListeners();
 });
+
+function showMusicQueue() {
+    const card = document.querySelector("#music-queue-card");
+    card.classList.remove("hidden");
+    card.classList.add("showing");
+}
+
+function hideMusicQueue() {
+    const card = document.querySelector("#music-queue-card");
+    card.classList.remove("showing");
+    card.classList.add("hidden");
+}
