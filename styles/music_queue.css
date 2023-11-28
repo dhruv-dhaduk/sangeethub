@@ -13,9 +13,6 @@
 }
 
 .music-queue-card > * {
-    margin-left: var(--inner-margin);
-    margin-right: var(--inner-margin);
-
     padding-left: var(--inner-margin);
     padding-right: var(--inner-margin);
 
