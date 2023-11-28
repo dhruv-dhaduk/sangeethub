@@ -96,12 +96,17 @@
     object-fit: cover;
 }
 
+.player-title-container {
+    margin-bottom: 2rem;
+}
+
 .player-title {
     font-family: "Merienda", sans-serif;
-    font-size: 1.25rem;
-    font-weight: bold;
 
-    height: 4rem;
+    --title-font-size: 1.25rem;
+
+    font-size: var(--title-font-size);
+    font-weight: bold;
 
     overflow: hidden;
     text-overflow: ellipsis;
