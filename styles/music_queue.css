@@ -1,0 +1,40 @@
+.music-queue-card {
+    display: none;
+
+    --inner-margin: 1rem;
+    --border-radius: 1rem;
+}
+
+.music-queue-card > * {
+    margin-left: var(--inner-margin);
+    margin-right: var(--inner-margin);
+
+    padding-left: var(--inner-margin);
+    padding-right: var(--inner-margin);
+}
+
+.music-queue-card > *:first-child {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+.music-queue-card > *:last-child {
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+
+.music-queue-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: blue;
+}
+
+.music-queue-header > img {
+    width: 1rem;
+}
+
+.music-queue-content {
+    background-color: red;
+
+    padding: var(--inner-margin);
+}

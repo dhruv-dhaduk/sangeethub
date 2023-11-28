@@ -41,8 +41,6 @@
 
 .music-queue-card {
     width: var(--player-width);
-    padding-left: var(--player-padding);
-    padding-right: var(--player-padding);
 }
 
 .player-thumbnail {
