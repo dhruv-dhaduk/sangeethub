@@ -8,6 +8,9 @@
 
     --thumbnail-size: 2.5rem;
 
+    border-radius: var(--border-radius);
+    overflow: hidden;
+
     position: absolute;
     margin: auto;
     left: 0;
@@ -20,15 +23,6 @@
     padding-right: var(--inner-margin);
 
     overflow-x: hidden;
-}
-
-.music-queue-card > *:first-child {
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
-}
-.music-queue-card > *:last-child {
-    border-bottom-left-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
 }
 
 .music-queue-header {
