@@ -32,10 +32,10 @@ function onYouTubeIframeAPIReady() {
 
             const currentVideoIDSTORED = localStorage.getItem("currentVideoID");
 
-            currentVideoIndex = Math.floor(Math.random() * (videoIDs.length));
+            currentVideoIndex = Math.floor(Math.random() * (musicData.length));
 
             if (currentVideoIDSTORED) {
-                const i = videoIDs.indexOf(currentVideoIDSTORED);
+                const i = musicData.findIndex(x => x.id === currentVideoIDSTORED);
                 if (i !== -1) {
                     currentVideoIndex = i;
                 }
@@ -44,7 +44,7 @@ function onYouTubeIframeAPIReady() {
                 }
             }
 
-            playMusic(videoIDs[currentVideoIndex], currentTimeSTORED);
+            playMusic(musicData[currentVideoIndex].id, currentTimeSTORED);
 
             clearInterval(fetchWaitITV);
         }
@@ -141,7 +141,7 @@ function updateMetaData() {
     }, 100);
 
 
-    const currentVideoID = videoIDs[currentVideoIndex];
+    const currentVideoID = musicData[currentVideoIndex].id;
 
     const thumbnail = `https://img.youtube.com/vi/${currentVideoID}/maxresdefault.jpg`
     document.querySelector("#player-thumbnail-img").src = thumbnail;
@@ -187,19 +187,19 @@ function playMusic(id, startTime) {
 
 function playPreviousMusic() {
     if (currentVideoIndex <= 0)
-        currentVideoIndex = videoIDs.length - 1;
+        currentVideoIndex = musicData.length - 1;
     else
         currentVideoIndex--;
 
-    playMusic(videoIDs[currentVideoIndex], 0);
+    playMusic(musicData[currentVideoIndex].id, 0);
 }
 function playNextMusic() {
-    if (currentVideoIndex >= videoIDs.length - 1)
+    if (currentVideoIndex >= musicData.length - 1)
         currentVideoIndex = 0;
     else
         currentVideoIndex++;
 
-    playMusic(videoIDs[currentVideoIndex], 0);
+    playMusic(musicData[currentVideoIndex].id, 0);
 }
 
 let videoVisible = false;

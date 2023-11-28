@@ -1,4 +1,4 @@
-async function fetchVideoIDs() {
+async function fetchMusicData() {
     const sheetId = '1HyoSoJHb2ol1HVEvSvF5e1jl-KnTx-7NFScFoNM7sus';
     const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?`;
     const sheetName = 'sangeethub';
@@ -10,23 +10,23 @@ async function fetchVideoIDs() {
 
     const json = JSON.parse(text.substring(text.indexOf('(') + 1, text.lastIndexOf(')')));
 
-    const ids = [];
+    const data = [];
 
     for (const row of json.table.rows) {
         if (row.c[0].v && row.c[0].v != "links") {
-            ids.push(row.c[0].v);
+            data.push({"id": row.c[0].v, "title": row.c[1].v});
         }
     }
 
-    return ids;
+    return data;
 }
 
 let fetchStatus = 0;
-let videoIDs;
+let musicData;
 
-fetchVideoIDs()
+fetchMusicData()
 .then((ids) => {
-    videoIDs = ids;
+    musicData = ids;
     fetchStatus = 1;
 })
 .catch((err) => {
