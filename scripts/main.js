@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
         img.addEventListener("contextmenu", (e) => { e.preventDefault(); });
     });
 
+    document.querySelector("#player-btn-queue").addEventListener("click", showMusicQueue);
+    document.querySelector("#music-queue-close-btn").addEventListener("click", hideMusicQueue);
+
     document.querySelector("#player-btn-playpause").addEventListener("click", () => {
         const stat = player.getPlayerState();
         if (stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING)
@@ -24,9 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#player-thumbnail").addEventListener("click", toggleThumbnail);
 
     addProgressbarEventListeners();
-
-    document.querySelector("#player-btn-queue").addEventListener("click", showMusicQueue);
-    document.querySelector("#music-queue-close-btn").addEventListener("click", hideMusicQueue);
 
 });
 
