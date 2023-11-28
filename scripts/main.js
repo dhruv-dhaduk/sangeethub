@@ -67,9 +67,17 @@ function createMusicQueueItem(id, title) {
     const item = document.querySelector("#music-queue-item-template").content.querySelector(".music-queue-item").cloneNode(true);
     
     item.dataset.id = id;
+    item.addEventListener("click", () => {
+        if (!item.classList.contains("music-queue-item-playing")) {
+            playMusic(item.dataset.id, 0);
+            hideMusicQueue();
+        }
+    });
+
     const thumbnail = item.querySelector(".music-queue-item-thumbnail");
     thumbnail.src = `https://img.youtube.com/vi/${id}/default.jpg`;
     thumbnail.addEventListener("contextmenu", (e) => { e.preventDefault(); });
+
     item.querySelector(".music-queue-item-title").innerHTML = title;
 
     return item;

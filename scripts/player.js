@@ -171,6 +171,8 @@ function playMusic(id, startTime) {
     iframeContainer.appendChild(iframeElement);
 
     highlightMusicQueueItemInPlay(id);
+
+    currentVideoIndex = musicData.findIndex(x => x.id === id);
     
     setTimeout(() => {
         localStorage.setItem("currentVideoID", id);
