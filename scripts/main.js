@@ -42,6 +42,15 @@ function hideMusicQueue() {
     card.classList.add("hidden");
 }
 
+function populateMusicQueue(data) {
+    const queue = document.querySelector("#music-queue-content");
+
+    for (const music of data) {
+        const item = createMusicQueueItem(music.id, music.title);
+        queue.append(item);
+    }
+}
+
 function createMusicQueueItem(id, title) {
     const item = document.querySelector("#music-queue-item-template").content.querySelector(".music-queue-item").cloneNode(true);
     
