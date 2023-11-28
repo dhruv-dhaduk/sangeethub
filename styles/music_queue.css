@@ -1,5 +1,5 @@
 .music-queue-card {
-    --inner-margin: 1rem;
+    --inner-margin: 0.75rem;
     --border-radius: 1rem;
 
     --card-background-color: #1f1f1f;
