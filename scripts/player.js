@@ -46,6 +46,17 @@ function onYouTubeIframeAPIReady() {
 
             playMusic(musicData[currentVideoIndex].id, currentTimeSTORED);
 
+            const highlightIntervalCt = 0;
+            const highlightITV = setInterval(() => {
+                if (highlightMusicQueueItemInPlay(musicData[currentVideoIndex].id)) {
+                    clearInterval(highlightITV);
+                    return;
+                }
+                highlightIntervalCt++;
+                if (highlightIntervalCt > 10)
+                    clearInterval(highlightITV);
+            }, 500);
+
             clearInterval(fetchWaitITV);
         }
     }, 100);
@@ -159,8 +170,9 @@ function playMusic(id, startTime) {
 
     iframeContainer.appendChild(iframeElement);
 
+    highlightMusicQueueItemInPlay(id);
+    
     setTimeout(() => {
-
         localStorage.setItem("currentVideoID", id);
 
         player = new YT.Player("player-iframe", {
