@@ -67,7 +67,9 @@ function createMusicQueueItem(id, title) {
     const item = document.querySelector("#music-queue-item-template").content.querySelector(".music-queue-item").cloneNode(true);
     
     item.dataset.id = id;
-    item.querySelector(".music-queue-item-thumbnail").src = `https://img.youtube.com/vi/${id}/default.jpg`;
+    const thumbnail = item.querySelector(".music-queue-item-thumbnail");
+    thumbnail.src = `https://img.youtube.com/vi/${id}/default.jpg`;
+    thumbnail.addEventListener("contextmenu", (e) => { e.preventDefault(); });
     item.querySelector(".music-queue-item-title").innerHTML = title;
 
     return item;
@@ -81,7 +83,6 @@ function highlightMusicQueueItemInPlay(id) {
         return false;
     
     for (const item of queueItems) {
-        console.log(item.dataset.id);
         if (item.dataset.id === id) {
             item.classList.add("music-queue-item-playing");
         }
