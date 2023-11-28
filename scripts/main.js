@@ -24,6 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#player-thumbnail").addEventListener("click", toggleThumbnail);
 
     addProgressbarEventListeners();
+
+    document.querySelector("#player-btn-queue").addEventListener("click", showMusicQueue);
+    document.querySelector("#music-queue-close-btn").addEventListener("click", hideMusicQueue);
+
 });
 
 function showMusicQueue() {
