@@ -72,3 +72,16 @@ function createMusicQueueItem(id, title) {
 
     return item;
 }
+
+function highlightMusicQueueItemInPlay(id) {
+    const queueItems = document.querySelectorAll(".music-queue-item");
+
+    for (const item of queueItems) {
+        if (item.dataset.id === id) {
+            item.classList.add("music-queue-item-playing");
+        }
+        else {
+            item.classList.remove("music-queue-item-playing");
+        }
+    }
+}
