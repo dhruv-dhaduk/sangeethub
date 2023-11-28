@@ -97,12 +97,12 @@
 
 .hidden {
     animation-name: position-top-down;
-    animation-duration: 1s;
+    animation-duration: 500ms;
     bottom: -100dvh;
 }
 
 .showing {
     animation-name: position-bottom-up;
-    animation-duration: 1s;
+    animation-duration: 500ms;
     bottom: 1rem;
 }
