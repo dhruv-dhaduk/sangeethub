@@ -61,28 +61,26 @@
             </div>
 
             <div id="music-queue-card" class="music-queue-card">
+                
                 <div class="music-queue-header">
                     <p class="music-queue-header-text">In Queue</p>
                     <button id="music-queue-close-btn" class="music-queue-close-btn">
-                        <img src="https://dhruv-dhaduk.github.io/assets/logos/white/close_white.png">
+                        <img src="https://dhruv-dhaduk.github.io/assets/logos/white/close_white.png" draggable="false">
                     </button>
                 </div>
+
                 <div class="music-queue-content">
-
-                    <div class="music-queue-item music-queue-item-playing" data-id="iLLVbXKVZWI">
-                        <div class="music-queue-item-thumbnail-container">
-                            <img class="music-queue-item-thumbnail" src="https://img.youtube.com/vi/iLLVbXKVZWI/default.jpg">
-                        </div>
-                        <p class="music-queue-item-title">Dhun Lagi</p>
-                    </div>
-                    <div class="music-queue-item" data-id="Jv8KRwF1zQs">
-                        <div class="music-queue-item-thumbnail-container">
-                            <img class="music-queue-item-thumbnail" src="https://img.youtube.com/vi/Jv8KRwF1zQs/default.jpg">
-                        </div>
-                        <p class="music-queue-item-title">Moti Verana</p>
-                    </div>
-
                 </div>
+                
+                <template id="music-queue-item-template">
+                    <div class="music-queue-item" data-id="">
+                        <div class="music-queue-item-thumbnail-container">
+                            <img class="music-queue-item-thumbnail" src="" draggable="false">
+                        </div>
+                        <p class="music-queue-item-title"></p>
+                    </div>
+                </template>
+
             </div>
 
         </div>
