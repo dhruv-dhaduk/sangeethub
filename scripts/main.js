@@ -41,3 +41,13 @@ function hideMusicQueue() {
     card.classList.remove("showing");
     card.classList.add("hidden");
 }
+
+function createMusicQueueItem(id, title) {
+    const item = document.querySelector("#music-queue-item-template").content.querySelector(".music-queue-item").cloneNode(true);
+    
+    item.dataset.id = id;
+    item.querySelector(".music-queue-item-thumbnail").src = `https://img.youtube.com/vi/${id}/default.jpg`;
+    item.querySelector(".music-queue-item-title").innerHTML = title;
+
+    return item;
+}
