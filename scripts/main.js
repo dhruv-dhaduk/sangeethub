@@ -70,7 +70,7 @@ function createMusicQueueItem(id, title) {
     item.addEventListener("click", () => {
         if (!item.classList.contains("music-queue-item-playing")) {
             playMusic(item.dataset.id, 0);
-            hideMusicQueue();
+            setTimeout(() => { hideMusicQueue(); }, 500);
         }
     });
 
@@ -89,10 +89,13 @@ function highlightMusicQueueItemInPlay(id) {
 
     if (queueItems.length <= 0)
         return false;
+
+    const queue = document.querySelector("#music-queue-content");
     
     for (const item of queueItems) {
         if (item.dataset.id === id) {
             item.classList.add("music-queue-item-playing");
+            queue.scrollTo(0, item.offsetTop - item.offsetHeight - item.offsetLeft);
         }
         else {
             item.classList.remove("music-queue-item-playing");
