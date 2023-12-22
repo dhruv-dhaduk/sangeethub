@@ -21,7 +21,8 @@ function loadMarkups() {
     }
 }
 
-async function loadElement(markupURL, selector) {
+async function loadElement(markupURL, selector, append) {
+    
     const response = await fetch(markupURL);
 
     if (!response.ok) {
@@ -29,5 +30,10 @@ async function loadElement(markupURL, selector) {
     }
 
     const text = await response.text();
-    document.querySelector(selector).innerHTML = text;
+    const e = document.querySelector(selector);
+
+    if (append)
+        e.innerHTML += text;
+    else 
+        e.innerHTML = text;
 }
