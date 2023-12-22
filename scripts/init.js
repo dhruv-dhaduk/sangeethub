@@ -5,15 +5,21 @@ function isMobileDevice() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const markupMainURL = isMobileDevice() ? "templates/mobileMain.html" : "templates/desktopMain.html";
-
-    loadElement(markupMainURL, "main")
-    .catch((err) => {
-        console.log(`Error : ${err}`);
-        alert(`Error : ${err}`);
-    });
-    
+    loadMarkups();
 });
+
+function loadMarkups() {
+    const dataContainer = isMobileDevice() ? document.querySelector("#mobileMarkup") : document.querySelector("#desktopMarkup");
+
+    const datalist = dataContainer.querySelectorAll("data");
+
+    for (const data of datalist) {
+        loadElement(data.value, data.dataset.selector)
+        .catch((err) => {
+            console.log(`Couldn't fetch the data : ${err}`);
+        });
+    }
+}
 
 async function loadElement(markupURL, selector) {
     const response = await fetch(markupURL);
