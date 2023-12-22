@@ -6,6 +6,7 @@ function isMobileDevice() {
 
 document.addEventListener("DOMContentLoaded", () => {
     loadMarkups();
+    loadStylesheets();
 });
 
 function loadMarkups() {
@@ -16,8 +17,18 @@ function loadMarkups() {
     for (const data of datalist) {
         loadElement(data.value, data.dataset.selector)
         .catch((err) => {
-            console.log(`Couldn't fetch the data : ${err}`);
+            console.log(`Couldn't fetch the markup ${data.value} : ${err}`);
         });
+    }
+}
+
+function loadStylesheets() {
+    const dataContainer = isMobileDevice() ? document.querySelector("#mobileStylesheets") : document.querySelector("#desktopStylesheets");
+
+    const datalist = dataContainer.querySelectorAll("data");
+
+    for (const data of datalist) {
+        document.head.innerHTML += `<link rel="stylesheet" href="${data.value}">`;
     }
 }
 
