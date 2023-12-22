@@ -5,7 +5,7 @@ function isMobileDevice() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const markupURL = isMobileDevice() ? "templates/mobile.html" : "templates/desktop.html";
+    const markupURL = isMobileDevice() ? "templates/mobileMain.html" : "templates/desktopMain.html";
 
     fetch(markupURL)
     .then((response) => {
