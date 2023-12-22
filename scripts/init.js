@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then((text) => {
         if (text) {
-            document.body.innerHTML += text;
+            document.querySelector("main").innerHTML = text;
         }
         else {
             alert("Couldn't fetch the page.");
