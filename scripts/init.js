@@ -5,28 +5,12 @@ function isMobileDevice() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const markupURL = isMobileDevice() ? "templates/mobileMain.html" : "templates/desktopMain.html";
+    const markupMainURL = isMobileDevice() ? "templates/mobileMain.html" : "templates/desktopMain.html";
 
-    fetch(markupURL)
-    .then((response) => {
-        if (response.ok) {
-            return response.text();
-        }
-        else {
-            return null;
-        }
-    })
-    .then((text) => {
-        if (text) {
-            document.querySelector("main").innerHTML = text;
-        }
-        else {
-            alert("Couldn't fetch the page.");
-        }
-    })
+    loadElement(markupMainURL, "main")
     .catch((err) => {
-        console.log(`Couldn't fetch the page : ${err}`);
-        alert("Couldn't fetch the page.");
+        console.log(`Error : ${err}`);
+        alert(`Error : ${err}`);
     });
     
 });
