@@ -30,3 +30,17 @@ nav {
 .desktop .nav-item-label {
     font-weight: bold;
 }
+
+.desktop .nav-item {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    height: var(--nav-item-height);
+    margin: var(--nav-items-margin);
+}
+
+.desktop .nav-item-icon {
+    margin-left: calc(3 * var(--nav-items-margin));
+    margin-right: calc(2 * var(--nav-items-margin));
+}
