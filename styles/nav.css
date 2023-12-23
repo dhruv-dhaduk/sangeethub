@@ -60,3 +60,8 @@ nav {
     margin-left: var(--nav-items-margin);
     margin-right: var(--nav-items-margin);
 }
+
+.nav-item.active {
+    background-color: var(--main-color);
+    border-radius: var(--nav-items-border-radius);
+}
