@@ -2,6 +2,15 @@ nav {
     background-color: var(--nav-background-color);
 }
 
+.desktop nav {
+    width: var(--nav-width);
+    height: calc(100vh - var(--header-height));
+
+    position: fixed;
+    left: 0;
+    top: var(--header-height);
+}
+
 .nav-item-icon {
     width: var(--nav-icon-size);
 }

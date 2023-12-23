@@ -1,8 +1,11 @@
 .desktop {
     --header-height: 3.5rem;
 
+    --nav-width: 10rem;
     --nav-icon-size: 1.5rem;
     --nav-label-size: 1.2rem;
+
+    margin-left: var(--nav-width);
 }
 
 .mobile {
@@ -15,8 +18,7 @@
 body {
     --header-background-color: #151515;
     --nav-background-color: #151515;
-}
 
-body {
+
     margin-top: var(--header-height);
 }
