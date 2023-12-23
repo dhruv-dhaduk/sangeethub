@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Quantico");
+
 header {
     width: calc(100vw - (100vw - 100%));
     height: var(--header-height);
@@ -13,7 +15,7 @@ header {
     --logo-margin: 0.65rem;
 }
 .mobile .logo {
-    --logo-margin: 0.5rem;
+    --logo-margin: 0.6rem;
 }
 
 .logo {
@@ -28,4 +30,11 @@ header {
 
 .icon {
     width: calc(var(--header-height) - 2 * var(--logo-margin));
+}
+
+.logo-text {
+    font-family: "Quantico", sans-serif;
+    margin-left: calc(var(--logo-margin) / 2);
+    font-weight: bold;
+    font-size: calc(var(--header-height) - 2.5 * var(--logo-margin));
 }
