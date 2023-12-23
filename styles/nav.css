@@ -1,0 +1,14 @@
+nav {
+    background-color: var(--nav-background-color);
+}
+
+.nav-item-icon {
+    width: var(--nav-icon-size);
+}
+
+.nav-item-label {
+    font-size: var(--nav-label-size);
+}
+.desktop .nav-item-label {
+    font-weight: bold;
+}

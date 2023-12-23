@@ -1,13 +1,20 @@
 .desktop {
     --header-height: 3.5rem;
+
+    --nav-icon-size: 1.5rem;
+    --nav-label-size: 1.2rem;
 }
 
 .mobile {
     --header-height: 3rem;
+
+    --nav-icon-size: 1.25rem;
+    --nav-label-size: 0.7rem;
 }
 
 body {
     --header-background-color: #151515;
+    --nav-background-color: #151515;
 }
 
 body {
