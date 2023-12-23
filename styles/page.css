@@ -19,6 +19,8 @@
     --header-height: 3rem;
 
     --nav-height: 3rem;
+    --nav-items-margin: 0.1rem;
+    --nav-items-border-radius: 0.5rem;
     --nav-icon-size: 1.25rem;
     --nav-label-size: 0.7rem;
 }

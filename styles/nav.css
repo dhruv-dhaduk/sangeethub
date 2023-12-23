@@ -44,3 +44,19 @@ nav {
     margin-left: calc(3 * var(--nav-items-margin));
     margin-right: calc(2 * var(--nav-items-margin));
 }
+
+.mobile nav {
+    display: flex;
+}
+
+.mobile .nav-item {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-left: var(--nav-items-margin);
+    margin-right: var(--nav-items-margin);
+}
