@@ -11,6 +11,15 @@ nav {
     top: var(--header-height);
 }
 
+.mobile nav {
+    width: 100%;
+    height: var(--nav-height);
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
 .nav-item-icon {
     width: var(--nav-icon-size);
 }

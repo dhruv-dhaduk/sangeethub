@@ -11,6 +11,7 @@
 .mobile {
     --header-height: 3rem;
 
+    --nav-height: 3rem;
     --nav-icon-size: 1.25rem;
     --nav-label-size: 0.7rem;
 }
@@ -21,4 +22,8 @@ body {
 
 
     margin-top: var(--header-height);
+}
+
+.mobile:last-child {
+    margin-bottom: var(--nav-height);
 }
