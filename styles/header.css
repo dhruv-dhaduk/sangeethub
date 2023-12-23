@@ -8,3 +8,24 @@ header {
     top: 0;
     left: 0;
 }
+
+.desktop .logo {
+    --logo-margin: 0.65rem;
+}
+.mobile .logo {
+    --logo-margin: 0.5rem;
+}
+
+.logo {
+    height: 100%;
+
+    margin-left: var(--logo-margin);
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.icon {
+    width: calc(var(--header-height) - 2 * var(--logo-margin));
+}
