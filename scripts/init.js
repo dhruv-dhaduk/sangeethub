@@ -1,34 +1,60 @@
+
+const markups = {
+    "desktop": [
+        {
+            "selector": "main",
+            "path": "templates/desktopMain.html"
+        },
+        {
+            "selector": "footer",
+            "path": "templates/desktopFooter.html"
+        }
+    ],
+    
+    "mobile": [
+        {
+            "selector": "main",
+            "path": "templates/mobileMain.html"
+        },
+        {
+            "selector": "footer",
+            "path": "templates/mobileFooter.html"
+        }
+    ]
+};
+
+const stylesheets = {
+    "desktop": [
+        "styles/desktop/desktop.css"
+    ],
+    
+    "mobile": [
+        "styles/mobile/mobile.css"
+    ]
+};
+
 function isMobileDevice() {
     let details = navigator.userAgent;
     let regexp = /android|iphone|kindle|ipad/i;
     return regexp.test(details);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    loadMarkups();
-    loadStylesheets();
-});
-
 function loadMarkups() {
-    const dataContainer = isMobileDevice() ? document.querySelector("#mobileMarkup") : document.querySelector("#desktopMarkup");
+    const markupList = isMobileDevice() ? markups.mobile : markups.desktop;
 
-    const datalist = dataContainer.querySelectorAll("data");
-
-    for (const data of datalist) {
-        loadElement(data.value, data.dataset.selector)
+    for (const mkp of markupList) {
+        loadElement(mkp.path, mkp.selector)
         .catch((err) => {
-            console.log(`Couldn't fetch the markup ${data.value} : ${err}`);
+            console.log(`Couldn't fetch the markup ${mkp.path} : ${err}`);
         });
     }
 }
 
 function loadStylesheets() {
-    const dataContainer = isMobileDevice() ? document.querySelector("#mobileStylesheets") : document.querySelector("#desktopStylesheets");
+    const stylesheetList = isMobileDevice() ? stylesheets.mobile : stylesheets.desktop;
 
-    const datalist = dataContainer.querySelectorAll("data");
-
-    for (const data of datalist) {
-        document.head.innerHTML += `<link rel="stylesheet" href="${data.value}">`;
+    for (const path of stylesheetList) {
+        document.head.innerHTML += `<link rel="stylesheet" href="${path}">`;
     }
 }
 
@@ -48,3 +74,7 @@ async function loadElement(markupURL, selector, append) {
     else 
         e.innerHTML = text;
 }
+
+loadStylesheets();
+
+document.addEventListener("DOMContentLoaded", () => { loadMarkups(); });
