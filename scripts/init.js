@@ -77,4 +77,9 @@ async function loadElement(markupURL, selector, append) {
 
 loadStylesheets();
 
-document.addEventListener("DOMContentLoaded", () => { loadMarkups(); });
+document.addEventListener("DOMContentLoaded", () => {
+    loadMarkups(); 
+
+    const bodyClass = isMobileDevice() ? "mobile": "desktop";
+    document.body.classList.add(bodyClass);
+});
