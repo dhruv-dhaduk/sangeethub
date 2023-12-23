@@ -3,4 +3,8 @@ header {
     height: var(--header-height);
 
     background-color: var(--header-background-color);
+
+    position: fixed;
+    top: 0;
+    left: 0;
 }
