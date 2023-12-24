@@ -93,6 +93,9 @@
     flex: 1;
     margin-left: var(--footer-horizontal-margin);
 
+    font-size: var(--footer-title-font-size);
+    font-weight: bold;
+
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
