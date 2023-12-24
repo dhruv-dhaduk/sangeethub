@@ -15,3 +15,13 @@
     object-fit: cover;
     scale: 1.3;
 }
+
+.feeditem-btn {
+    background: none;
+    border: none;
+}
+
+.feeditem-btn > img {
+    width: var(--feeditem-buttons-size);
+    height: var(--feeditem-buttons-size);
+}
