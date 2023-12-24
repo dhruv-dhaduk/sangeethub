@@ -30,3 +30,46 @@
     height: 100%;
     object-fit: cover;
 }
+
+.desktop .footer-content-container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.desktop .footer-content {
+    display: flex;
+
+    flex: 1;
+}
+
+.desktop .footer-progressbar {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+
+    border-radius: 0;
+    background: none;
+    border: none;
+    height: 5px;
+}
+.desktop .footer-progressbar::-webkit-progress-bar {
+    background: none;
+}
+.desktop .footer-progressbar::-webkit-progress-value {
+    background-color: var(--main-color);
+}
+.desktop .footer-progressbar::-moz-progress-bar {
+    background-color: var(--main-color);
+}
+
+.desktop .footer-thumbnail {
+    width: 4rem;
+}
+
+.desktop .footer-btn > img {
+    width: 2rem;
+}
