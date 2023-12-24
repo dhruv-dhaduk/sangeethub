@@ -1,6 +1,7 @@
 :root {
     --main-color: #0079E3;
     --page-background-color: #151515;
+    --feeditem-playing-background-color: #152736;
 
     --header-background-color: var(--page-background-color);
     --nav-background-color: var(--page-background-color);

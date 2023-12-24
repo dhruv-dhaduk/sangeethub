@@ -6,6 +6,10 @@
     justify-content: start;
 }
 
+.feeditem.playing {
+    background-color: var(--feeditem-playing-background-color);
+}
+
 .feeditem-thumbnail-container {
     width: var(--feeditem-thumbnail-size);
     height: var(--feeditem-thumbnail-size);
