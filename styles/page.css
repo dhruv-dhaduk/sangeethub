@@ -42,6 +42,10 @@ body {
     margin-top: var(--header-height);
 }
 
+.desktop main {
+    margin-bottom: var(--footer-height);
+}
+
 .mobile:last-child {
     margin-bottom: var(--nav-height);
 }
