@@ -12,6 +12,8 @@
     --nav-icon-size: 1.5rem;
     --nav-label-size: 1.2rem;
 
+    --footer-height: 5rem;
+
     margin-left: var(--nav-width);
 }
 
@@ -28,7 +30,7 @@
 body {
     --header-background-color: #151515;
     --nav-background-color: #151515;
-
+    --footer-background-color: #151515;
 
     margin-top: var(--header-height);
 }
