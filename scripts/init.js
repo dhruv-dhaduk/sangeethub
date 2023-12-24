@@ -24,15 +24,8 @@ const markups = {
 };
 
 const stylesheets = {
-    "desktop": [
-        "styles/desktop/desktop.css",
-        "styles/desktop/footer.css"
-    ],
-    
-    "mobile": [
-        "styles/mobile/mobile.css",
-        "styles/mobile/footer.css"
-    ]
+    "desktop": [],
+    "mobile": []
 };
 
 function isMobileDevice() {
