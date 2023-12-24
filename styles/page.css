@@ -13,6 +13,9 @@
     --nav-label-size: 1.2rem;
 
     --footer-height: 5rem;
+    --footer-progressbar-height: 0.4rem;
+    --footer-thumbnail-size: 4rem;
+    --footer-buttons-size: 3.5rem;
 
     margin-left: var(--nav-width);
 }
