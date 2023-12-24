@@ -75,6 +75,8 @@
 
     margin-left: var(--footer-horizontal-margin);
 
+    border-radius: var(--footer-thumbnail-border-radius);
+
     overflow: hidden;
 }
 
