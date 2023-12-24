@@ -1,5 +1,10 @@
 :root {
     --main-color: #0079E3;
+    --page-background-color: #151515;
+}
+
+html, body {
+    background-color: var(--page-background-color);
 }
 
 .desktop {
@@ -45,9 +50,9 @@
 }
 
 body {
-    --header-background-color: #151515;
-    --nav-background-color: #151515;
-    --footer-background-color: #151515;
+    --header-background-color: var(--page-background-color);
+    --nav-background-color: var(--page-background-color);
+    --footer-background-color: var(--page-background-color);
 
     margin-top: var(--header-height);
 }
@@ -58,4 +63,10 @@ body {
 
 .mobile main {
     margin-bottom: calc(var(--nav-height) + var(--footer-height) + var(--footer-bottom-margin));
+}
+
+main {
+    background-color: var(--page-background-color);
+
+    padding: 1rem;
 }
