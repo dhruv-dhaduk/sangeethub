@@ -16,6 +16,7 @@
     --footer-progressbar-height: 0.4rem;
     --footer-thumbnail-size: 4rem;
     --footer-buttons-size: 3.5rem;
+    --footer-horizontal-margin: 0.5rem;
 
     margin-left: var(--nav-width);
 }
