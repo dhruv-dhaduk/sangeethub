@@ -17,6 +17,8 @@ footer {
     overflow: hidden;
 
     border-radius: calc(var(--footer-height) / 2);
+
+    box-shadow: black 0 0 50px;
 }
 
 .mobile .footer-content {
