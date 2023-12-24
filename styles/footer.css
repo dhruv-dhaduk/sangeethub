@@ -6,6 +6,8 @@ footer {
 
     position: fixed;
     left: 0;
+
+    z-index: var(--footer-z-index);
 }
 
 .desktop footer {

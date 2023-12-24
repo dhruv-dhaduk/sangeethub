@@ -7,6 +7,10 @@
     --nav-background-color: var(--page-background-color);
     --footer-background-color: var(--page-background-color);
 
+    --header-z-index: 10;
+    --nav-z-index: 1;
+    --footer-z-index: 5;
+
     --button-click-transition-duration: 100ms;
 }
 
@@ -66,6 +70,9 @@ body {
 
 .mobile main {
     margin-bottom: calc(var(--nav-height) + var(--footer-height) + var(--footer-bottom-margin));
+
+    padding-left: 0;
+    padding-right: 0;
 }
 
 main {
@@ -81,4 +88,13 @@ main {
     --feeditem-buttons-size: 2.5rem;
     --feeditem-horizontal-margin: 0.75rem;
     --feeditem-font-size: 1.2rem;
+}
+
+.mobile main {
+    --feeditem-height: 3.75rem;
+    --feeditem-thumbnail-size: 3rem;
+    --feeditem-thumbnail-border-radius: 0.5rem;
+    --feeditem-buttons-size: 1.75rem;
+    --feeditem-horizontal-margin: 0.75rem;
+    --feeditem-font-size: 1rem;
 }
