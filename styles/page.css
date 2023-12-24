@@ -72,3 +72,8 @@ main {
 
     padding: 1rem;
 }
+
+.desktop main {
+    --feeditem-height: 4.5rem;
+    --feeditem-thumbnail-size: 3.75rem;
+}

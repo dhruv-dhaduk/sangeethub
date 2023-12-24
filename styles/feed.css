@@ -1,0 +1,17 @@
+.feeditem {
+    height: var(--feeditem-height);
+}
+
+.feeditem-thumbnail-container {
+    width: var(--feeditem-thumbnail-size);
+    height: var(--feeditem-thumbnail-size);
+
+    overflow: hidden;
+}
+
+.feeditem-thumbnail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    scale: 1.3;
+}
