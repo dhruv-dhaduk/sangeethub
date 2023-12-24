@@ -77,6 +77,7 @@ main {
 .desktop main {
     --feeditem-height: 4.5rem;
     --feeditem-thumbnail-size: 3.75rem;
+    --feeditem-thumbnail-border-radius: 0.5rem;
     --feeditem-buttons-size: 2.5rem;
     --feeditem-horizontal-margin: 0.5rem;
     --feeditem-font-size: 1.2rem;

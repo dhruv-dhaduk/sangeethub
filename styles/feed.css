@@ -17,6 +17,8 @@
     width: var(--feeditem-thumbnail-size);
     height: var(--feeditem-thumbnail-size);
 
+    border-radius: var(--feeditem-thumbnail-border-radius);
+
     overflow: hidden;
 }
 
