@@ -4,7 +4,7 @@ nav {
 
 .desktop nav {
     width: var(--nav-width);
-    height: calc(100vh - var(--header-height));
+    height: calc(100vh - var(--header-height) - var(--footer-height));
 
     position: fixed;
     left: 0;
