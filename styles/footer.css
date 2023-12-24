@@ -1,0 +1,9 @@
+footer {
+    background-color: var(--footer-background-color);
+
+    width: calc(100vw - (100vw - 100%));
+    height: var(--footer-height);
+
+    position: fixed;
+    left: 0;
+}

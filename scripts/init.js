@@ -30,7 +30,8 @@ const stylesheets = {
     ],
     
     "mobile": [
-        "styles/mobile/mobile.css"
+        "styles/mobile/mobile.css",
+        "styles/mobile/footer.css"
     ]
 };
 
