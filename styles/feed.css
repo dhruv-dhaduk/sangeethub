@@ -30,6 +30,8 @@
 .feeditem-title {
     flex: 1;
 
+    font-size: var(--feeditem-font-size);
+
     margin-left: var(--feeditem-horizontal-margin);
 
     overflow: hidden;
