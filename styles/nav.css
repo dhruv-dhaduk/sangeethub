@@ -63,6 +63,15 @@ nav {
     margin-right: var(--nav-items-margin);
 }
 
+
+.nav-item {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+.nav-item:active {
+    background-color: black;
+}
+
 .nav-item.active {
     background-color: var(--main-color);
     border-radius: var(--nav-items-border-radius);
