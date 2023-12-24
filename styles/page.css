@@ -33,15 +33,15 @@
     --nav-icon-size: 1.25rem;
     --nav-label-size: 0.7rem;
 
-    --footer-height: 3.5rem;
+    --footer-height: 4rem;
     --footer-bottom-margin: 0.5rem;
-    --footer-progressbar-height: 0.25rem;
-    --footer-thumbnail-size: 2.75rem;
-    --footer-buttons-size: 2.25rem;
+    --footer-progressbar-height: 0.2rem;
+    --footer-thumbnail-size: 3rem;
+    --footer-buttons-size: 2.7rem;
     --footer-thumbnail-border-radius: 0.5rem;
-    --footer-title-font-size: 1.25rem;
+    --footer-title-font-size: 1.1rem;
     --footer-horizontal-margin: 0.5rem;
-    --footer-close-btn-left-margin: 1rem;
+    --footer-close-btn-left-margin: 0.1rem;
 }
 
 body {
@@ -56,6 +56,6 @@ body {
     margin-bottom: var(--footer-height);
 }
 
-.mobile:last-child {
-    margin-bottom: var(--nav-height);
+.mobile main {
+    margin-bottom: calc(var(--nav-height) + var(--footer-height) + var(--footer-bottom-margin));
 }
