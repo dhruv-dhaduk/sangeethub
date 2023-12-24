@@ -1,5 +1,7 @@
 nav {
     background-color: var(--nav-background-color);
+
+    box-shadow: black 0 0 50px;
 }
 
 .desktop nav {
