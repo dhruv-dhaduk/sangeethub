@@ -4,6 +4,9 @@
     display: flex;
     align-items: center;
     justify-content: start;
+
+    padding-left: var(--feeditem-horizontal-margin);
+    padding-right: var(--feeditem-horizontal-margin);
 }
 
 .feeditem.playing {
@@ -26,6 +29,8 @@
 
 .feeditem-title {
     flex: 1;
+
+    margin-left: var(--feeditem-horizontal-margin);
 
     overflow: hidden;
     text-overflow: ellipsis;

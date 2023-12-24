@@ -78,4 +78,5 @@ main {
     --feeditem-height: 4.5rem;
     --feeditem-thumbnail-size: 3.75rem;
     --feeditem-buttons-size: 2.5rem;
+    --feeditem-horizontal-margin: 0.5rem;
 }
