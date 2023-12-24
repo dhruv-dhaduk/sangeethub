@@ -22,13 +22,27 @@ header {
 }
 
 .logo {
+    width: fit-content;
     height: 100%;
 
-    margin-left: var(--logo-margin);
+    padding-left: var(--logo-margin);
+    padding-right: var(--logo-margin);
 
     display: flex;
     justify-content: start;
     align-items: center;
+
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.logo:hover, .logo:active, .logo:focus, .logo:link, .logo:visited {
+    color: white;
+    text-decoration: none;
+}
+.logo:active {
+    background-color: black;
 }
 
 .icon {
