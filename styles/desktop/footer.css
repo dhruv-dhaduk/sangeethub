@@ -102,10 +102,22 @@
 .desktop .footer-buttons {
     margin-right: var(--footer-horizontal-margin);
 }
+
 .desktop .footer-btn {
     width: var(--footer-buttons-size);
     height: var(--footer-buttons-size);
+
+    background: none;
+    border: none;
+    border-radius: 50%;
 }
 .desktop .footer-btn > img {
-    width: calc(var(--footer-buttons-size) / 2.75);
+    width: calc(var(--footer-buttons-size) / 2.5);
+}
+
+.desktop .footer-btn.playpause {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+.desktop .footer-btn.close {
+    margin-left: var(--footer-close-btn-left-margin);
 }
