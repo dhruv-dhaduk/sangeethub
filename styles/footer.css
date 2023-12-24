@@ -26,3 +26,99 @@ footer {
     height: 100%;
     object-fit: cover;
 }
+
+.footer-content-container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+
+    flex: 1;
+
+    overflow: hidden;
+}
+
+.footer-progressbar {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    height: var(--footer-progressbar-height);
+
+    border-radius: 0;
+    background: none;
+    border: none;
+}
+.footer-progressbar::-webkit-progress-bar {
+    background: none;
+}
+.footer-progressbar::-webkit-progress-value {
+    background-color: var(--main-color);
+}
+.footer-progressbar::-moz-progress-bar {
+    background-color: var(--main-color);
+}
+
+.footer-thumbnail-container {
+    width: var(--footer-thumbnail-size);
+    height: var(--footer-thumbnail-size);
+
+    margin-left: var(--footer-horizontal-margin);
+
+    border-radius: var(--footer-thumbnail-border-radius);
+
+    overflow: hidden;
+}
+
+.footer-thumbnail {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    scale: 1.3;
+}
+
+.footer-music-title {
+    flex: 1;
+    margin-left: var(--footer-horizontal-margin);
+
+    font-size: var(--footer-title-font-size);
+    font-weight: bold;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+            line-clamp: 1;
+}
+
+.footer-buttons {
+    margin-right: var(--footer-horizontal-margin);
+}
+
+.footer-btn {
+    width: var(--footer-buttons-size);
+    height: var(--footer-buttons-size);
+
+    background: none;
+    border: none;
+    border-radius: 50%;
+}
+.footer-btn > img {
+    width: calc(var(--footer-buttons-size) / 2.5);
+}
+
+.footer-btn.playpause {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+.footer-btn.close {
+    margin-left: var(--footer-close-btn-left-margin);
+}
