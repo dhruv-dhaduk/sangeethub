@@ -1,4 +1,3 @@
-
 const markups = {
     "desktop": [
         {
@@ -39,6 +38,11 @@ function loadMarkups() {
 
     for (const mkp of markupList) {
         loadElement(mkp.path, mkp.selector)
+        .then(() => {
+            document.querySelectorAll(`${mkp.selector} img`).forEach((img) => {
+                img.addEventListener("contextmenu", (e) => { e.preventDefault(); });
+            });
+        })
         .catch((err) => {
             console.log(`Couldn't fetch the markup ${mkp.path} : ${err}`);
         });
@@ -77,4 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const bodyClass = isMobileDevice() ? "mobile": "desktop";
     document.body.classList.add(bodyClass);
+
+    document.querySelectorAll("img").forEach((img) => {
+        img.addEventListener("contextmenu", (e) => { e.preventDefault(); });
+    });
 });
