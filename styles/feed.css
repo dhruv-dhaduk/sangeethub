@@ -1,5 +1,9 @@
 .feeditem {
     height: var(--feeditem-height);
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
 }
 
 .feeditem-thumbnail-container {
@@ -14,6 +18,17 @@
     height: 100%;
     object-fit: cover;
     scale: 1.3;
+}
+
+.feeditem-title {
+    flex: 1;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+            line-clamp: 1;
 }
 
 .feeditem-btn {
