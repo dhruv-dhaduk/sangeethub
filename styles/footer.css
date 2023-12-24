@@ -59,6 +59,9 @@ footer {
     flex: 1;
 
     overflow: hidden;
+
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .footer-progressbar {
@@ -128,7 +131,14 @@ footer {
     background: none;
     border: none;
     border-radius: 50%;
+
+    transition-duration: var(--button-click-transition-duration);
 }
+.footer-btn:active {
+    scale: 0.9;
+    transition-duration: var(--button-click-transition-duration);
+}
+
 .footer-btn > img {
     width: calc(var(--footer-buttons-size) / 2.5);
 }

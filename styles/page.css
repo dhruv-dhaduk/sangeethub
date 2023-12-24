@@ -1,6 +1,12 @@
 :root {
     --main-color: #0079E3;
     --page-background-color: #151515;
+
+    --header-background-color: var(--page-background-color);
+    --nav-background-color: var(--page-background-color);
+    --footer-background-color: var(--page-background-color);
+
+    --button-click-transition-duration: 100ms;
 }
 
 html, body {
@@ -50,10 +56,6 @@ html, body {
 }
 
 body {
-    --header-background-color: var(--page-background-color);
-    --nav-background-color: var(--page-background-color);
-    --footer-background-color: var(--page-background-color);
-
     margin-top: var(--header-height);
 }
 
