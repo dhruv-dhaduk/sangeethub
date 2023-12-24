@@ -25,7 +25,8 @@ const markups = {
 
 const stylesheets = {
     "desktop": [
-        "styles/desktop/desktop.css"
+        "styles/desktop/desktop.css",
+        "styles/desktop/footer.css"
     ],
     
     "mobile": [
