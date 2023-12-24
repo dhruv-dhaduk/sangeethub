@@ -47,6 +47,13 @@
 .feeditem-btn {
     background: none;
     border: none;
+
+    transition-duration: var(--button-click-transition-duration);
+}
+.feeditem-btn:active {
+    scale: 0.9;
+
+    transition-duration: var(--button-click-transition-duration);
 }
 
 .feeditem-btn > img {
