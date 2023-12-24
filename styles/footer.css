@@ -8,6 +8,21 @@ footer {
     left: 0;
 }
 
+.desktop footer {
+    bottom: 0;
+}
+
+.mobile footer {
+    bottom: calc(var(--nav-height) + var(--footer-bottom-margin));
+    overflow: hidden;
+
+    border-radius: calc(var(--footer-height) / 2);
+}
+
+.mobile .footer-content {
+    padding-left: calc(var(--footer-height) / 6);
+}
+
 .footer-background {
     width: 100%;
     height: 100%;
