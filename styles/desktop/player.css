@@ -1,4 +1,10 @@
-.player-background {
+.desktop #playerpage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.desktop .player-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -12,9 +18,22 @@
     opacity: 0.6;
 }
 
-.player-background > img {
+.desktop .player-background > img {
     width: 100%;
     height: 100%;
 
     object-fit: cover;
+}
+
+.desktop .player {
+    width: calc(100% - 2 * var(--player-x-padding));
+    height: calc(100% - 2 * var(--player-y-padding));
+
+    overflow: hidden;
+
+    border: 1px solid white;
+}
+
+.player img {
+    width: 100px;
 }
