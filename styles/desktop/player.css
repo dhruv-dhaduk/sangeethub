@@ -146,3 +146,7 @@
 .desktop .player-btn-playpause {
     background-color: rgba(255, 255, 255, 0.25);
 }
+
+.player-main-content img {
+    width: 40px;
+}
