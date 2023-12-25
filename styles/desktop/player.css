@@ -172,3 +172,45 @@
 
     margin-left: auto;
 }
+
+.desktop .player-title-and-like-container {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.desktop .player-title {
+    flex: 1;
+
+    font-weight: bold;
+    font-size: 1.2rem;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+            line-clamp: 3;
+}
+
+.desktop .player-upnext > p:first-child {
+    font-weight: bold;
+    font-size: 1.35rem;
+
+    margin-bottom: 0;
+}
+
+.desktop .player-upnext-title {
+    font-size: 0.9rem;
+    line-height: 1.25;
+
+    margin: 0;
+    margin-top: 0.5rem;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+            line-clamp: 2;
+}
