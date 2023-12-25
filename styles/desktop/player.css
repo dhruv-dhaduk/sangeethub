@@ -214,3 +214,33 @@
     -webkit-line-clamp: 2;
             line-clamp: 2;
 }
+
+.desktop .player-playvideo-toggle {
+    --toggle-height: 1.75rem;
+    --aspect-ratio: 2.2;
+    --thumb-padding: calc(var(--toggle-height) / 5);
+
+    aspect-ratio: var(--aspect-ratio);
+    width: calc(var(--toggle-height) * var(--aspect-ratio));
+
+    border-radius: var(--toggle-height);
+
+    padding: var(--thumb-padding);
+
+    background-color: black;
+
+    position: relative;
+}
+
+.desktop .player-playvideo-toggle-thumb {
+    background-color: white;
+
+    aspect-ratio: 1;
+    height: calc(100% - 2 * var(--thumb-padding));
+    margin-left: var(--thumb-padding);
+    margin-right: var(--thumb-padding);
+    border-radius: 50%;
+
+    position: absolute;
+    left: 0;
+}
