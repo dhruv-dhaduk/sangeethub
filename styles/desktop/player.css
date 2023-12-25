@@ -113,6 +113,7 @@
 }
 .desktop .player-progressbar::-moz-range-progress {
     background-color: var(--main-color);
+    height: 100%;
 }
 
 .desktop .player-time-container > * {
@@ -302,4 +303,22 @@
     line-height: 2;
 
     font-size: 1.1rem;
+}
+
+.desktop .player-volumebar {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
+    height: 0.2rem;
+    border-radius: 0.1rem;
+    accent-color: var(--main-color);
+}
+.desktop .player-volumebar::-moz-range-thumb {
+    background-color: var(--main-color);
+    border: none;
+}
+
+.desktop .player-volumebar::-moz-range-progress {
+    background-color: var(--main-color);
+    height: 100%;
 }
