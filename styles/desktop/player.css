@@ -32,6 +32,37 @@
     overflow: hidden;
 
     border: 1px solid white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.desktop .player-main-area {
+    display: flex;
+    aspect-ratio: 2;
+}
+
+.desktop .player-thumbnail {
+    /* flex: 1; */
+    background-color: red;
+    aspect-ratio: 1;
+}
+
+.desktop .player-main-content {
+    flex: 1;
+    background-color: blue;
+}
+
+.desktop .player-time-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.desktop .player-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .player img {

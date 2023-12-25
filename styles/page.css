@@ -38,8 +38,8 @@ html, body {
     --footer-horizontal-margin: 0.5rem;
     --footer-close-btn-left-margin: 2rem;
 
-    --player-x-padding: 5rem;
-    --player-y-padding: 2.5rem;
+    --player-x-padding: 10rem;
+    --player-y-padding: 3rem;
 
     margin-left: var(--nav-width);
 }
@@ -104,8 +104,6 @@ main {
 }
 
 .desktop #playerpage {
-    display: none;
-
     width: calc(100vw - (100vw - 100%));
     height: 100vh;
 
