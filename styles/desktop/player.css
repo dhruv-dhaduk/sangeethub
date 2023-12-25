@@ -116,6 +116,7 @@
 
 .desktop .player-time-container > * {
     margin: 0;
+    line-height: 2;
 }
 
 .desktop .player-btn-container {
@@ -126,6 +127,22 @@
     justify-content: center;
 }
 
-.player img {
-    width: 50px;
+.desktop .player-btn {
+    width: min(5rem, 20%);
+    aspect-ratio: 1;
+
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+
+    background: none;
+    border: none;
+    border-radius: 50%;
+}
+
+.desktop .player-btn > img {
+    width: 50%;
+}
+
+.desktop .player-btn-playpause {
+    background-color: rgba(255, 255, 255, 0.25);
 }
