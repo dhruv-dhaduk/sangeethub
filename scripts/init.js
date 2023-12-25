@@ -7,6 +7,10 @@ const markups = {
         {
             "selector": "footer",
             "path": "templates/desktopFooter.html"
+        },
+        {
+            "selector": "#playerpage",
+            "path": "templates/desktopPlayer.html"
         }
     ],
     
@@ -23,7 +27,9 @@ const markups = {
 };
 
 const stylesheets = {
-    "desktop": [],
+    "desktop": [
+        "styles/desktop/player.css"
+    ],
     "mobile": []
 };
 
