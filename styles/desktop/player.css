@@ -51,6 +51,7 @@
 
 .desktop .player-main-content {
     flex: 1;
+    overflow: hidden;
 }
 
 .desktop .player-thumbnail-content {
