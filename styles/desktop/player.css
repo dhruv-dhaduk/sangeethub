@@ -148,6 +148,27 @@
     background-color: rgba(255, 255, 255, 0.25);
 }
 
-.player-main-content img {
-    width: 40px;
+.desktop .player-other-btn-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.desktop .player-main-content button {
+    width: 4rem;
+    aspect-ratio: 1;
+
+    background: none;
+    border: none;
+    border-radius: 50%;
+}
+
+.desktop .player-main-content button > img {
+    width: 50%;
+}
+
+.desktop .player-btn-close {
+    background-color: rgba(255, 255, 255, 0.25);
+
+    margin-left: auto;
 }
