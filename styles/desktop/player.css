@@ -98,6 +98,20 @@
 
 .desktop .player-progressbar {
     margin: 0;
+
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
+    height: 0.2rem;
+    border-radius: 0.1rem;
+    accent-color: var(--main-color);
+}
+.desktop .player-progressbar::-moz-range-thumb {
+    background-color: var(--main-color);
+    border: none;
+}
+.desktop .player-progressbar::-moz-range-progress {
+    background-color: var(--main-color);
 }
 
 .desktop .player-time-container > * {
