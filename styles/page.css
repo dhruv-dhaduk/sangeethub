@@ -111,5 +111,5 @@ main {
     z-index: var(--playerpage-z-index);
 
     background-color: black;
-    overflow: scroll;
+    overflow-y: scroll;
 }
