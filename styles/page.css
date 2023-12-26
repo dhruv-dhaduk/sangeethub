@@ -51,7 +51,7 @@ html, body {
     --player-title-container-margin: 1rem;
     --toggle-height: 1.4rem;
     --toggle-animation-duration: 250ms;
-    --player-audio-video-control-font-size: 0.9rem;
+    --player-audio-video-control-font-size: 0.85rem;
     --player-progressbar-height: 0.3rem;
     --player-volumebar-height: 0.2rem;
 
