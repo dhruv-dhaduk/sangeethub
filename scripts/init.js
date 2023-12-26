@@ -55,17 +55,21 @@ function loadMarkups() {
                 img.addEventListener("contextmenu", (e) => { e.preventDefault(); });
             });
 
-            document.querySelector("#player-btn-close").addEventListener("click", () => {
-                const playerpage = document.querySelector("#playerpage");
-                playerpage.classList.remove("show");
-                playerpage.classList.add("hide");
+            if (mkp.selector === "#playerpage") {
+                document.querySelector("#player-btn-close").addEventListener("click", () => {
+                    const playerpage = document.querySelector("#playerpage");
+                    playerpage.classList.remove("show");
+                    playerpage.classList.add("hide");
+    
+                    document.body.classList.remove("disable-scroll");
+                });
+            }
 
-                document.body.classList.remove("disable-scroll");
-            });
-
-            document.querySelectorAll("#main-footer button").forEach((btn) => {
-                btn.addEventListener("click", (e) => { e.stopPropagation(); });
-            });
+            if (mkp.selector === "footer") {
+                document.querySelectorAll("#main-footer button").forEach((btn) => {
+                    btn.addEventListener("click", (e) => { e.stopPropagation(); });
+                });
+            }
         })
         .catch((err) => {
             console.log(`Couldn't fetch the markup ${mkp.path} : ${err}`);
