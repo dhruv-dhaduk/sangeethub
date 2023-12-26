@@ -13,6 +13,7 @@
     --playerpage-z-index: 20;
 
     --button-click-transition-duration: 100ms;
+    --playerpage-transition-duration: 500ms;
 }
 
 html, body {
@@ -109,7 +110,7 @@ main {
     background-color: black;
     overflow: hidden;
 
-    animation-duration: 500ms;
+    animation-duration: var(--playerpage-transition-duration, 500ms);
 }
 #playerpage.show {
     animation-name: show;
