@@ -43,6 +43,7 @@
 }
 
 /* Main area */
+
 .desktop .player-main-area {
     display: flex;
     aspect-ratio: 2;
@@ -50,18 +51,18 @@
     margin-bottom: var(--player-main-area-bottom-margin, 2rem);
 }
 
-/* Thumbnail section */
 .desktop .player-thumbnail {
     aspect-ratio: 1;
-
+    
     margin-right: 1rem;
 }
-
 
 .desktop .player-main-content {
     flex: 1;
     overflow: hidden;
 }
+
+/* Thumbnail section */
 
 .desktop .player-thumbnail-content {
     width: 100%;
