@@ -151,7 +151,7 @@
 
 .desktop .player-time-container > * {
     margin: 0;
-    line-height: 2;
+    line-height: var(--player-default-line-height);
 }
 
 /* Player control buttons. */
@@ -252,10 +252,10 @@
 
 .desktop .player-upnext-title {
     font-size: var(--player-upnext-title-font-size);
-    line-height: 1.25;
+    line-height: var(--player-upnext-title-line-height);
 
     margin: 0;
-    margin-top: 0.5rem;
+    margin-top: var(--player-upnext-title-top-margin);
 
     overflow: hidden;
     text-overflow: ellipsis;
@@ -379,7 +379,7 @@
 
 .desktop .player-playvideo-toggle-container > p {
     margin: 0;
-    line-height: 2;
+    line-height: var(--player-default-line-height);
 
     font-size: var(--player-audio-video-control-font-size);
 }
@@ -406,7 +406,7 @@
 
 .desktop .player-volume-text > p {
     margin: 0;
-    line-height: 2;
+    line-height: var(--player-default-line-height);
 
     font-size: var(--player-audio-video-control-font-size);
 }
