@@ -97,13 +97,23 @@ main {
 
 #playerpage {
     position: fixed;
-    top: 0;
+    top: 120vh;
     left: 0;
 
     z-index: var(--playerpage-z-index);
 
     background-color: black;
     overflow: hidden;
+
+    animation-duration: 500ms;
+}
+#playerpage.show {
+    animation-name: show;
+    top: 0;
+}
+#playerpage.hide {
+    animation-name: hide;
+    top: 120vh;
 }
 
 .desktop #playerpage {
@@ -124,7 +134,7 @@ main {
     --player-progressbar-height: 0.3rem;
     --player-volumebar-height: 0.2rem;
 
-    display: none;
+    /* display: none; */
 
     width: calc(100vw - (100vw - 100%));
     height: 100vh;
@@ -134,7 +144,7 @@ main {
     --player-other-btn-size: 3.5rem;
     --toggle-height: 1.35rem;
 
-    display: none;
+    /* display: none; */
 
     width: 100vw;
     height: 100dvh;
@@ -149,5 +159,23 @@ main {
 @media screen and (max-height: 40rem) {
     .desktop #playerpage {
         --playerpage-y-padding: 0;
+    }
+}
+
+@keyframes show {
+    0% {
+        top: 120vh;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes hide {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 120vh;
     }
 }

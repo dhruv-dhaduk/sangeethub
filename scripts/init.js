@@ -54,6 +54,16 @@ function loadMarkups() {
             document.querySelectorAll(`${mkp.selector} img`).forEach((img) => {
                 img.addEventListener("contextmenu", (e) => { e.preventDefault(); });
             });
+
+            document.querySelector("#player-btn-close").addEventListener("click", () => {
+                const playerpage = document.querySelector("#playerpage");
+                playerpage.classList.remove("show");
+                playerpage.classList.add("hide");
+            });
+
+            document.querySelectorAll("#main-footer button").forEach((btn) => {
+                btn.addEventListener("click", (e) => { e.stopPropagation(); });
+            });
         })
         .catch((err) => {
             console.log(`Couldn't fetch the markup ${mkp.path} : ${err}`);
@@ -96,5 +106,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll("img").forEach((img) => {
         img.addEventListener("contextmenu", (e) => { e.preventDefault(); });
+    });
+
+    const playerpage = document.querySelector("#playerpage")
+
+    document.querySelector("#main-footer").addEventListener("click", () => {
+        playerpage.classList.remove("hide");
+        playerpage.classList.add("show");
     });
 });
