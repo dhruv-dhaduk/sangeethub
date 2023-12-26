@@ -127,6 +127,7 @@ main {
     --playerpage-x-padding: 12rem;
     --playerpage-y-padding: 5rem;
     --player-inner-padding: 2.5rem;
+    --player-main-area-bottom-margin: 2rem;
     --player-thumbnail-border-radius: 1rem;
     --player-control-btn-size: 5rem;
     --player-control-btn-margin: 0.5rem;

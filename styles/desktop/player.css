@@ -47,7 +47,7 @@
     display: flex;
     aspect-ratio: 2;
 
-    margin-bottom: 2rem;
+    margin-bottom: var(--player-main-area-bottom-margin, 2rem);
 }
 
 /* Thumbnail section */
