@@ -131,6 +131,7 @@ main {
 }
 
 .mobile #playerpage {
+    --player-other-btn-size: 3.75rem;
 
     /* display: none; */
 

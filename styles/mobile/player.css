@@ -32,7 +32,7 @@
 
 .player {
     flex: 1;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -218,9 +218,33 @@
     }
 }
 
+.mobile .player-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile .player-btn-like {
+    flex-shrink: 0;
+}
+
+.mobile .player-btn-like,
+.mobile .player-other-btn {
+    width: var(--player-other-btn-size);
+    aspect-ratio: 1;
+
+    background: none;
+    border: none;
+    border-radius: 50%;
+}
+
 .mobile .player-btn-like > img,
 .mobile .player-other-btn > img {
-    width: 20px;
+    width: 50%;
+}
+
+.mobile .player-btn-close {
+    background-color: rgba(255, 255, 255, 0.25);
 }
 
 .mobile .player-footer-container {
