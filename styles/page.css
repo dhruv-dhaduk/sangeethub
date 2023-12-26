@@ -113,7 +113,7 @@ main {
     --player-progressbar-height: 0.3rem;
     --player-volumebar-height: 0.2rem;
 
-    /* display: none; */
+    display: none;
 
     width: calc(100vw - (100vw - 100%));
     height: 100vh;

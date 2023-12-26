@@ -22,6 +22,10 @@ const markups = {
         {
             "selector": "footer",
             "path": "templates/mobileFooter.html"
+        },
+        {
+            "selector": "#playerpage",
+            "path": "templates/mobilePlayer.html"
         }
     ]
 };
@@ -30,7 +34,9 @@ const stylesheets = {
     "desktop": [
         "styles/desktop/player.css"
     ],
-    "mobile": []
+    "mobile": [
+        "styles/mobile/player.css"
+    ]
 };
 
 function isMobileDevice() {
