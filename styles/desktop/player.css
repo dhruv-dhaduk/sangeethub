@@ -104,29 +104,42 @@
     object-fit: cover;
 }
 
-/* Progressbar of the player */
+/* Progressbar and volumebar of the player */
 
 .desktop .player-progressbar {
+    --bar-height: var(--player-progressbar-height);
+}
+.desktop .player-volumebar {
+    --bar-height: var(--player-volumebar-height);
+}
+
+.desktop .player-progressbar,
+.desktop .player-volumebar
+{
     margin: 0;
     
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     
-    height: var(--player-progressbar-height);
-    border-radius: calc(var(--player-progressbar-height) / 2);
+    height: var(--bar-height);
+    border-radius: calc(var(--bar-height) / 2);
     accent-color: var(--main-color);
 }
-.desktop .player-progressbar::-moz-range-thumb {
+.desktop .player-progressbar::-moz-range-thumb,
+.desktop .player-volumebar::-moz-range-thumb
+{
     background-color: var(--main-color);
     border: none;
-    width: calc(var(--player-progressbar-height) * 3);
-    height: calc(var(--player-progressbar-height) * 3);
+    width: calc(var(--bar-height) * 3);
+    height: calc(var(--bar-height) * 3);
     border-radius: 50%;
 }
-.desktop .player-progressbar::-moz-range-progress {
+.desktop .player-progressbar::-moz-range-progress,
+.desktop .player-volumebar::-moz-range-progress
+{
     background-color: var(--main-color);
     height: 100%;
-    border-radius: calc(var(--player-progressbar-height) / 2);
+    border-radius: calc(var(--bar-height) / 2);
 }
 
 
@@ -397,26 +410,4 @@
     line-height: 2;
 
     font-size: var(--player-audio-video-control-font-size);
-}
-
-.desktop .player-volumebar {
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-
-    height: var(--player-volumebar-height);
-    border-radius: calc(var(--player-volumebar-height) / 2);
-    accent-color: var(--main-color);
-}
-.desktop .player-volumebar::-moz-range-thumb {
-    background-color: var(--main-color);
-    border: none;
-    width: calc(var(--player-volumebar-height) * 3);
-    height: calc(var(--player-volumebar-height) * 3);
-    border-radius: 50%;
-}
-
-.desktop .player-volumebar::-moz-range-progress {
-    background-color: var(--main-color);
-    height: 100%;
-    border-radius: calc(var(--player-volumebar-height) / 2);
 }
