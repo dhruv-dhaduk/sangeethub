@@ -38,8 +38,9 @@ html, body {
     --footer-horizontal-margin: 0.5rem;
     --footer-close-btn-left-margin: 2rem;
 
-    --player-x-padding: 12rem;
-    --player-y-padding: 5rem;
+    --playerpage-x-padding: 12rem;
+    --playerpage-y-padding: 5rem;
+    --player-inner-padding: 2.5rem;
     --player-thumbnail-border-radius: 1rem;
     --player-control-btn-size: 5rem;
     --player-control-btn-margin: 0.5rem;
