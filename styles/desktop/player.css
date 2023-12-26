@@ -242,6 +242,11 @@
     background-color: black;
 
     position: relative;
+
+    --animation-duration: 500ms;
+
+    animation-duration: var(--animation-duration);
+    animation-iteration-count: 1;
 }
 
 .desktop .player-playvideo-toggle-thumb {
@@ -254,7 +259,62 @@
     border-radius: 50%;
 
     position: absolute;
+
+    --toggle-thumb-off-position: calc((var(--toggle-height) * var(--aspect-ratio)) - var(--toggle-height));
+
+    animation-duration: var(--animation-duration);
+    animation-iteration-count: 1;    
+}
+
+.desktop .player-playvideo-toggle.on {
+    animation-name: toggle-on;
+    background-color: var(--main-color);
+}
+.desktop .player-playvideo-toggle.off {
+    animation-name: toggle-off;
+    background-color: black;
+}
+.desktop .player-playvideo-toggle.on > div {
+    animation-name: toggle-thumb-on;
+    left: var(--toggle-thumb-off-position);
+}
+.desktop .player-playvideo-toggle.off > div {
+    animation-name: toggle-thumb-off;
     left: 0;
+}
+
+@keyframes toggle-thumb-on {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: var(--toggle-thumb-off-position);
+    }
+}
+@keyframes toggle-thumb-off {
+    0% {
+        left: var(--toggle-thumb-off-position)
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes toggle-on {
+    0% {
+        background-color: black;
+    }
+    100% {
+        background-color: var(--main-color);
+    }
+}
+@keyframes toggle-off {
+    0% {
+        background-color: var(--main-color);
+    }
+    100% {
+        background-color: black;
+    }
 }
 
 .desktop .player-video-audio-control {
