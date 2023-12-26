@@ -70,7 +70,7 @@
     overflow: hidden;
 
     border-radius: var(--player-thumbnail-border-radius);
-    box-shadow: rgba(255, 255, 255, 0.75) 0 0 2rem;
+    box-shadow: var(--player-thumbnail-box-shadow);
 
     display: flex;
     justify-content: center;

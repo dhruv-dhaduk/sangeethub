@@ -129,6 +129,7 @@ main {
     --player-inner-padding: 2.5rem;
     --player-main-area-bottom-margin: 2rem;
     --player-thumbnail-border-radius: 1rem;
+    --player-thumbnail-box-shadow: rgba(255, 255, 255, 0.75) 0 0 2rem;
     --player-control-btn-size: 5rem;
     --player-control-btn-margin: 0.5rem;
     --player-other-btn-size: 4rem;
