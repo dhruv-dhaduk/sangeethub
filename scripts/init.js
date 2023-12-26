@@ -59,6 +59,8 @@ function loadMarkups() {
                 const playerpage = document.querySelector("#playerpage");
                 playerpage.classList.remove("show");
                 playerpage.classList.add("hide");
+
+                document.body.classList.remove("disable-scroll");
             });
 
             document.querySelectorAll("#main-footer button").forEach((btn) => {
@@ -113,5 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#main-footer").addEventListener("click", () => {
         playerpage.classList.remove("hide");
         playerpage.classList.add("show");
+
+        document.body.classList.add("disable-scroll");
     });
 });

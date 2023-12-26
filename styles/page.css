@@ -116,6 +116,11 @@ main {
     top: 120vh;
 }
 
+.disable-scroll {
+    height: 100%;
+    overflow: hidden;
+}
+
 .desktop #playerpage {
     --playerpage-x-padding: 12rem;
     --playerpage-y-padding: 5rem;
