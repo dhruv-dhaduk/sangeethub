@@ -132,6 +132,7 @@ main {
 
 .mobile #playerpage {
     --player-other-btn-size: 3.75rem;
+    --toggle-height: 1.35rem;
 
     /* display: none; */
 

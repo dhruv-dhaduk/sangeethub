@@ -250,3 +250,90 @@
 .mobile .player-footer-container {
     margin-top: auto;
 }
+
+.mobile .player-playvideo-toggle {
+    --aspect-ratio: 2.2;
+    --thumb-padding: calc(var(--toggle-height) / 5);
+
+    aspect-ratio: var(--aspect-ratio);
+    width: calc(var(--toggle-height) * var(--aspect-ratio));
+
+    border-radius: var(--toggle-height);
+
+    padding: var(--thumb-padding);
+
+    background-color: black;
+
+    position: relative;
+
+    animation-duration: var(--toggle-animation-duration, 500ms);
+    animation-iteration-count: 1;
+}
+
+.mobile .player-playvideo-toggle-thumb {
+    background-color: white;
+
+    aspect-ratio: 1;
+    height: calc(100% - 2 * var(--thumb-padding));
+    margin-left: var(--thumb-padding);
+    margin-right: var(--thumb-padding);
+    border-radius: 50%;
+
+    position: absolute;
+
+    --toggle-thumb-off-position: calc((var(--toggle-height) * var(--aspect-ratio)) - var(--toggle-height));
+
+    animation-duration: var(--toggle-animation-duration, 500ms);
+    animation-iteration-count: 1;    
+}
+
+.mobile .player-playvideo-toggle.on {
+    animation-name: toggle-on;
+    background-color: var(--main-color);
+}
+.mobile .player-playvideo-toggle.off {
+    animation-name: toggle-off;
+    background-color: black;
+}
+.mobile .player-playvideo-toggle.on > div {
+    animation-name: toggle-thumb-on;
+    left: var(--toggle-thumb-off-position);
+}
+.mobile .player-playvideo-toggle.off > div {
+    animation-name: toggle-thumb-off;
+    left: 0;
+}
+
+@keyframes toggle-thumb-on {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: var(--toggle-thumb-off-position);
+    }
+}
+@keyframes toggle-thumb-off {
+    0% {
+        left: var(--toggle-thumb-off-position)
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes toggle-on {
+    0% {
+        background-color: black;
+    }
+    100% {
+        background-color: var(--main-color);
+    }
+}
+@keyframes toggle-off {
+    0% {
+        background-color: var(--main-color);
+    }
+    100% {
+        background-color: black;
+    }
+}
