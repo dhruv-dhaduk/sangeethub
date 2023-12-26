@@ -42,6 +42,7 @@
     justify-content: center;
 }
 
+/* Main area */
 .desktop .player-main-area {
     display: flex;
     aspect-ratio: 2;
@@ -49,13 +50,13 @@
     margin-bottom: 2rem;
 }
 
+/* Thumbnail section */
 .desktop .player-thumbnail {
     aspect-ratio: 1;
 
     margin-right: 1rem;
 }
 
-/* Thumbnail section */
 
 .desktop .player-main-content {
     flex: 1;
