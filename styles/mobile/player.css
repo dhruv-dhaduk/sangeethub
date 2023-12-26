@@ -167,7 +167,7 @@
 }
 
 .player-progress-bar {
-    --progress-bar-color:  #8fd2ff;
+    --progress-bar-color: var(--main-color);
     
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
