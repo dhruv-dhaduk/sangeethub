@@ -4,6 +4,8 @@
     align-items: center;
 }
 
+/* Background */
+
 .desktop .player-background {
     position: absolute;
     top: 0;
@@ -24,6 +26,8 @@
 
     object-fit: cover;
 }
+
+/* Layout and styling of the player */
 
 .desktop .player {
     width: calc(100% - 2 * var(--player-x-padding));
@@ -48,6 +52,8 @@
 
     margin-right: 1rem;
 }
+
+/* Thumbnail section */
 
 .desktop .player-main-content {
     flex: 1;
@@ -92,34 +98,45 @@
     object-fit: cover;
 }
 
-.desktop .player-time-container {
-    display: flex;
-    justify-content: space-between;
-}
+/* Progressbar of the player */
 
 .desktop .player-progressbar {
     margin: 0;
-
+    
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
-
-    height: 0.2rem;
-    border-radius: 0.1rem;
+    
+    height: var(--player-progressbar-height);
+    border-radius: calc(var(--player-progressbar-height) / 2);
     accent-color: var(--main-color);
 }
 .desktop .player-progressbar::-moz-range-thumb {
     background-color: var(--main-color);
     border: none;
+    width: calc(var(--player-progressbar-height) * 3);
+    height: calc(var(--player-progressbar-height) * 3);
+    border-radius: 50%;
 }
 .desktop .player-progressbar::-moz-range-progress {
     background-color: var(--main-color);
     height: 100%;
+    border-radius: calc(var(--player-progressbar-height) / 2);
+}
+
+
+/* Timestamps of the player */
+
+.desktop .player-time-container {
+    display: flex;
+    justify-content: space-between;
 }
 
 .desktop .player-time-container > * {
     margin: 0;
     line-height: 2;
 }
+
+/* Player control buttons. */
 
 .desktop .player-btn-container {
     margin-top: 1rem;
@@ -130,11 +147,11 @@
 }
 
 .desktop .player-btn {
-    width: min(5rem, 20%);
+    width: min(var(--player-control-btn-size), 20%);
     aspect-ratio: 1;
 
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    margin-left: var(--player-control-btn-margin);
+    margin-right: var(--player-control-btn-margin);
 
     background: none;
     border: none;
@@ -149,11 +166,15 @@
     background-color: rgba(255, 255, 255, 0.25);
 }
 
+/* Main content section of player */
+
 .desktop .player-main-content {
     display: flex;
     flex-direction: column;
     justify-content: start;
 }
+
+    /* Other buttons inside main content section */
 
 .desktop .player-other-btn-container {
     display: flex;
@@ -162,7 +183,7 @@
 }
 
 .desktop .player-main-content button {
-    width: 4rem;
+    width: var(--player-other-btn-size);
     aspect-ratio: 1;
 
     background: none;
@@ -180,6 +201,8 @@
     margin-left: auto;
 }
 
+    /* Title and like button section */
+
 .desktop .player-title-and-like-container {
     display: flex;
     align-items: start;
@@ -190,7 +213,7 @@
     flex: 1;
 
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: var(--player-title-font-size);
 
     overflow: hidden;
     text-overflow: ellipsis;
@@ -200,15 +223,17 @@
             line-clamp: 3;
 }
 
+    /* Up next section */
+
 .desktop .player-upnext > p:first-child {
     font-weight: bold;
-    font-size: 1.35rem;
+    font-size: var(--player-upnext-heading-font-size);
 
     margin-bottom: 0;
 }
 
 .desktop .player-upnext-title {
-    font-size: 0.9rem;
+    font-size: var(--player-upnext-title-font-size);
     line-height: 1.25;
 
     margin: 0;
@@ -222,13 +247,16 @@
             line-clamp: 2;
 }
 
+    /* Title and like continer */
+
 .desktop .player-title-and-like-container {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: var(--player-title-container-margin);
+    margin-bottom: var(--player-title-container-margin);
 }
 
+    /* Toggle button to play video */
+
 .desktop .player-playvideo-toggle {
-    --toggle-height: 1.75rem;
     --aspect-ratio: 2.2;
     --thumb-padding: calc(var(--toggle-height) / 5);
 
@@ -243,9 +271,7 @@
 
     position: relative;
 
-    --animation-duration: 500ms;
-
-    animation-duration: var(--animation-duration);
+    animation-duration: var(--toggle-animation-duration, 500ms);
     animation-iteration-count: 1;
 }
 
@@ -262,7 +288,7 @@
 
     --toggle-thumb-off-position: calc((var(--toggle-height) * var(--aspect-ratio)) - var(--toggle-height));
 
-    animation-duration: var(--animation-duration);
+    animation-duration: var(--toggle-animation-duration, 500ms);
     animation-iteration-count: 1;    
 }
 
@@ -317,6 +343,8 @@
     }
 }
 
+
+    /* Player volume controller */
 .desktop .player-video-audio-control {
     display: flex;
     justify-content: space-between;
@@ -335,7 +363,7 @@
     margin: 0;
     line-height: 2;
 
-    font-size: 1.1rem;
+    font-size: var(--player-audio-video-control-font-size);
 }
 
 .desktop .player-volume-container {
@@ -362,23 +390,27 @@
     margin: 0;
     line-height: 2;
 
-    font-size: 1.1rem;
+    font-size: var(--player-audio-video-font-size);
 }
 
 .desktop .player-volumebar {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
 
-    height: 0.2rem;
-    border-radius: 0.1rem;
+    height: var(--player-volumebar-height);
+    border-radius: calc(var(--player-volumebar-height) / 2);
     accent-color: var(--main-color);
 }
 .desktop .player-volumebar::-moz-range-thumb {
     background-color: var(--main-color);
     border: none;
+    width: calc(var(--player-volumebar-height) * 3);
+    height: calc(var(--player-volumebar-height) * 3);
+    border-radius: 50%;
 }
 
 .desktop .player-volumebar::-moz-range-progress {
     background-color: var(--main-color);
     height: 100%;
+    border-radius: calc(var(--player-volumebar-height) / 2);
 }

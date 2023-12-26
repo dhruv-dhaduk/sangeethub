@@ -41,6 +41,18 @@ html, body {
     --player-x-padding: 12rem;
     --player-y-padding: 5rem;
     --player-thumbnail-border-radius: 1rem;
+    --player-control-btn-size: 5rem;
+    --player-control-btn-margin: 0.5rem;
+    --player-other-btn-size: 4rem;
+    --player-title-font-size: 1.2rem;
+    --player-upnext-heading-font-size: 1.35rem;
+    --player-upnext-title-font-size: 0.9rem;
+    --player-title-container-margin: 1rem;
+    --toggle-height: 1.75rem;
+    --toggle-animation-duration: 250ms;
+    --player-audio-video-control-font-size: 1.1rem;
+    --player-progressbar-height: 0.3rem;
+    --player-volumebar-height: 0.2rem;
 
     margin-left: var(--nav-width);
 }
