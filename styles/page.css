@@ -13,6 +13,7 @@
     --playerpage-z-index: 20;
 
     --button-click-transition-duration: 100ms;
+    --toggle-animation-duration: 250ms;
     --playerpage-transition-duration: 500ms;
 }
 
@@ -73,7 +74,6 @@ body.mobile {
 
 main {
     background-color: var(--page-background-color);
-
 }
 
 .desktop main {
@@ -97,7 +97,6 @@ main {
     --feeditem-font-size: 1rem;
 
     margin-bottom: calc(var(--nav-height) + var(--footer-height) + var(--footer-bottom-margin));
-    padding: 0;
 }
 
 #playerpage {
@@ -134,7 +133,6 @@ main {
     --player-upnext-title-font-size: 0.9rem;
     --player-title-container-margin: 1rem;
     --toggle-height: 1.4rem;
-    --toggle-animation-duration: 250ms;
     --player-audio-video-control-font-size: 0.85rem;
     --player-progressbar-height: 0.3rem;
     --player-volumebar-height: 0.2rem;
