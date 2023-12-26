@@ -95,6 +95,17 @@ main {
     padding: 1rem;
 }
 
+#playerpage {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: var(--playerpage-z-index);
+
+    background-color: black;
+    overflow: hidden;
+}
+
 .desktop #playerpage {
     --playerpage-x-padding: 12rem;
     --playerpage-y-padding: 5rem;
@@ -117,15 +128,14 @@ main {
 
     width: calc(100vw - (100vw - 100%));
     height: 100vh;
+}
 
-    position: fixed;
-    top: 0;
-    left: 0;
+.mobile #playerpage {
 
-    z-index: var(--playerpage-z-index);
+    display: none;
 
-    background-color: black;
-    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
 }
 
 @media screen and (max-width: 80rem) {

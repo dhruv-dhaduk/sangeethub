@@ -3,8 +3,6 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
-
-    height: 100dvh;
     overflow: hidden;
 
     position: relative;
