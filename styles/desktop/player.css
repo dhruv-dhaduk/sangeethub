@@ -165,7 +165,7 @@
 }
 
 .desktop .player-btn {
-    width: min(var(--player-control-btn-size), 20%);
+    width: var(--player-control-btn-size);
     aspect-ratio: 1;
 
     margin-left: var(--player-control-btn-margin);
