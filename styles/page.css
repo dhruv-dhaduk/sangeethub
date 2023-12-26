@@ -131,10 +131,10 @@ main {
 }
 
 .mobile #playerpage {
-    --player-other-btn-size: 3.75rem;
+    --player-other-btn-size: 3.5rem;
     --toggle-height: 1.35rem;
 
-    /* display: none; */
+    display: none;
 
     width: 100vw;
     height: 100dvh;

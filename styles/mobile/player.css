@@ -249,6 +249,15 @@
 
 .mobile .player-footer-container {
     margin-top: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile .player-footer-container p {
+    font-size: 0.75rem;
+    margin: 0;
 }
 
 .mobile .player-playvideo-toggle {
