@@ -106,6 +106,9 @@ main {
 }
 
 #playerpage {
+    --blink-animation-duration: 3s;
+    --infinite-blink-animation-duration: 1s;
+
     position: fixed;
     top: 120vh;
     left: 0;
@@ -167,8 +170,6 @@ main {
     --player-time-font-size: 0.9rem;
     --player-control-top-margin: 2.5rem;
     --player-control-btn-size: 4rem;
-    --blink-animation-duration: 3s;
-    --infinite-blink-animation-duration: 1s;
     --player-footer-font-size: 0.75rem;
     --player-other-btn-size: 3.5rem;
     --toggle-height: 1.35rem;

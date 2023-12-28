@@ -410,3 +410,37 @@
 
     font-size: var(--player-audio-video-control-font-size);
 }
+
+/* Blinking animation keyframes */
+
+.blink-animation {
+    animation-name: blink;
+    animation-duration: var(--blink-animation-duration);
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.infinite-blink-animation {
+    animation-name: infinite-blink;
+    animation-duration: var(--infinite-blink-animation-duration);
+    animation-iteration-count: infinite;
+}
+
+@keyframes infinite-blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
