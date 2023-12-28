@@ -7,6 +7,18 @@
     position: relative;
 }
 
+.player {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    width: var(--player-width);
+    padding-top: var(--player-padding);
+    padding-bottom: var(--player-padding);
+}
+
 /* Background */
 
 .player-background {
@@ -28,26 +40,15 @@
     object-fit: cover;
 }
 
-.player {
-    flex: 1;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-
-    width: var(--player-width);
-    padding-top: var(--player-padding);
-    padding-bottom: var(--player-padding);
-}
+/* Thumbnail Section */
 
 .player-thumbnail {
     background-color: black;
-    --thumbnail-border-radius: 1rem;
-    border-radius: var(--thumbnail-border-radius);
+
+    border-radius: var(--player-thumbnail-border-radius);
     aspect-ratio: 1;
     width: 100%;
-    /* height: 100%; */
-    box-shadow: rgba(255, 255, 255, 0.5) 0 0 2rem 0;
+    box-shadow: var(--player-thumbnail-box-shadow);
 
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
@@ -57,7 +58,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    border-radius: var(--thumbnail-border-radius);
+    border-radius: var(--player-thumbnail-border-radius);
 
     display: flex;
     justify-content: center;
@@ -92,16 +93,20 @@
     object-fit: cover;
 }
 
+/* Title Section */
+
 .player-title-container {
-    margin-bottom: 2rem;
+    margin-bottom: var(--player-title-container-margin);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .player-title {
     font-family: "Merienda", sans-serif;
 
-    --title-font-size: 1.25rem;
-
-    font-size: var(--title-font-size);
+    font-size: var(--player-title-font-size);
     font-weight: bold;
 
     overflow: hidden;
@@ -112,53 +117,7 @@
             line-clamp: 1;
 }
 
-.player-time-container {
-    display: flex;
-    justify-content: space-between;
-    margin: 0;
-}
-
-.player-time-container > p {
-    margin: 0;
-    padding: 0.2rem;
-
-    font-size: 0.9rem;
-    color: #e5e5e5;
-}
-
-.player-btn-container {
-    margin-top: 2.5rem;
-    display: flex;
-    justify-content: space-between;
-
-    --icon-size: 1.5rem;
-}
-
-.player-btn-container > button {
-    background: transparent;
-    border: none;
-    border-radius: 50%;
-    aspect-ratio: 1;
-    padding: calc(0.8 * var(--icon-size));
-
-    --click-transition-duration: 100ms;
-
-    transition-duration: var(--click-transition-duration);
-}
-
-.player-btn-container > button:active {
-    scale: 0.9;
-    transition-duration: var(--click-transition-duration);
-}
-
-.player-btn-container > .player-btn-playpause {
-    background-color: rgba(255, 255, 255, 0.25);
-}
-
-.player-btn-container > button > img {
-    width: var(--icon-size);
-    height: var(--icon-size);
-}
+/* Progress bar Section */
 
 .player-progress-bar {
     --progress-bar-color: var(--main-color);
@@ -166,8 +125,8 @@
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
 
-    height: 0.2rem;
-    border-radius: 0.1rem;
+    height: var(--player-progressbar-height);
+    border-radius: calc(var(--player-progressbar-height) / 2);
     accent-color: var(--progress-bar-color);
 }
 
@@ -180,43 +139,57 @@
     background-color: var(--progress-bar-color);
 }
 
-.blink-animation {
-    animation-name: blink;
-    animation-duration: 3s;
-}
+/* Timestamps of the player */
 
-@keyframes blink {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.infinite-blink-animation {
-    animation-name: infinite-blink;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-}
-
-@keyframes infinite-blink {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.mobile .player-title-container {
+.player-time-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    margin: 0;
 }
+
+.player-time-container > p {
+    margin: 0;
+    padding: var(--player-time-container-padding);
+
+    font-size: var(--player-time-font-size);
+    color: #e5e5e5;
+}
+
+/* Player Control Buttons */
+
+.player-btn-container {
+    margin-top: var(--player-control-top-margin);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.player-btn-container > button {
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+
+    width: var(--player-control-btn-size);
+    aspect-ratio: 1;
+
+    transition-duration: var(--button-click-transition-duration);
+}
+
+.player-btn-container > button:active {
+    scale: var(--button-click-scale);
+    transition-duration: var(--button-click-transition-duration);
+}
+
+.player-btn-container > .player-btn-playpause {
+    background-color: var(--button-background-color);
+}
+
+.player-btn-container > button > img {
+    width: 50%;
+}
+
+/* Other Buttons */
 
 .mobile .player-btn-like {
     flex-shrink: 0;
@@ -238,8 +211,10 @@
 }
 
 .mobile .player-btn-close {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: var(--button-background-color);
 }
+
+/* Footer of Player */
 
 .mobile .player-footer-container {
     margin-top: auto;
@@ -250,9 +225,11 @@
 }
 
 .mobile .player-footer-container p {
-    font-size: 0.75rem;
+    font-size: var(--player-footer-font-size);
     margin: 0;
 }
+
+/* Play-Video Toggle Button */
 
 .mobile .player-playvideo-toggle {
     --aspect-ratio: 2.2;
@@ -307,6 +284,8 @@
     left: 0;
 }
 
+/* Toggle Button animation keyframes */
+
 @keyframes toggle-thumb-on {
     0% {
         left: 0;
@@ -338,5 +317,39 @@
     }
     100% {
         background-color: black;
+    }
+}
+
+/* Blinking animation keyframes */
+
+.blink-animation {
+    animation-name: blink;
+    animation-duration: var(--blink-animation-duration);
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.infinite-blink-animation {
+    animation-name: infinite-blink;
+    animation-duration: var(--infinite-blink-animation-duration);
+    animation-iteration-count: infinite;
+}
+
+@keyframes infinite-blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
