@@ -45,25 +45,7 @@ function loadMarkups() {
     for (const mkp of markupList) {
         loadElement(mkp.path, mkp.selector)
         .then(() => {
-            document.querySelectorAll(`${mkp.selector} img`).forEach((img) => {
-                img.addEventListener("contextmenu", (e) => { e.preventDefault(); });
-            });
-
-            if (mkp.selector === "#playerpage") {
-                document.querySelector("#player-btn-close").addEventListener("click", () => {
-                    const playerpage = document.querySelector("#playerpage");
-                    playerpage.classList.remove("show");
-                    playerpage.classList.add("hide");
-    
-                    document.body.classList.remove("disable-scroll");
-                });
-            }
-
-            if (mkp.selector === "footer") {
-                document.querySelectorAll("#main-footer button").forEach((btn) => {
-                    btn.addEventListener("click", (e) => { e.stopPropagation(); });
-                });
-            }
+            initMarkup(mkp.selector);
         })
         .catch((err) => {
             console.log(`Couldn't fetch the markup ${mkp.path} : ${err}`);
@@ -94,4 +76,26 @@ async function loadElement(markupURL, selector, append) {
         e.innerHTML += text;
     else 
         e.innerHTML = text;
+}
+
+function initMarkup(selector) {
+    document.querySelectorAll(`${selector} img`).forEach((img) => {
+        img.addEventListener("contextmenu", (e) => { e.preventDefault(); });
+    });
+
+    if (selector === "#playerpage") {
+        document.querySelector("#player-btn-close").addEventListener("click", () => {
+            const playerpage = document.querySelector("#playerpage");
+            playerpage.classList.remove("show");
+            playerpage.classList.add("hide");
+
+            document.body.classList.remove("disable-scroll");
+        });
+    }
+
+    if (selector === "footer") {
+        document.querySelectorAll("#main-footer button").forEach((btn) => {
+            btn.addEventListener("click", (e) => { e.stopPropagation(); });
+        });
+    }
 }
