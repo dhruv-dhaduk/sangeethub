@@ -3,13 +3,14 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    overflow: hidden;
 
     position: relative;
 
     --player-padding: 1.5rem;
     --player-width: min(calc(100% - var(--player-padding) * 2), 25rem);
 }
+
+/* Background */
 
 .player-background {
     position: absolute;

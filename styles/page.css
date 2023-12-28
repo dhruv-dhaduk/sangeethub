@@ -111,7 +111,6 @@ main {
     z-index: var(--playerpage-z-index);
 
     background-color: black;
-    overflow: hidden;
 
     animation-duration: var(--playerpage-transition-duration, 500ms);
 }
@@ -148,6 +147,7 @@ main {
     --player-progressbar-height: 0.3rem;
     --player-volumebar-height: 0.2rem;
 
+    overflow: hidden;
     width: calc(100vw - (100vw - 100%));
     height: 100vh;
 }
@@ -156,6 +156,7 @@ main {
     --player-other-btn-size: 3.5rem;
     --toggle-height: 1.35rem;
 
+    overflow-y: scroll;
     width: 100vw;
     height: 100dvh;
 }
