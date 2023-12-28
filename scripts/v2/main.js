@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         img.addEventListener("contextmenu", (e) => { e.preventDefault(); });
     });
 
-    const playerpage = document.querySelector("#playerpage")
+    const playerpage = document.querySelector("#playerpage");
 
     document.querySelector("#main-footer").addEventListener("click", () => {
         playerpage.classList.remove("hide");
