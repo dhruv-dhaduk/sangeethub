@@ -40,10 +40,6 @@
     padding-bottom: var(--player-padding);
 }
 
-.music-queue-card {
-    width: var(--player-width);
-}
-
 .player-thumbnail {
     background-color: black;
     --thumbnail-border-radius: 1rem;
