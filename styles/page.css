@@ -153,6 +153,9 @@ main {
 }
 
 .mobile #playerpage {
+    --player-padding: 1.5rem;
+    --player-min-width: 25rem;
+    --player-width: min(calc(100% - var(--player-padding) * 2), var(--player-min-width));
     --player-other-btn-size: 3.5rem;
     --toggle-height: 1.35rem;
 
