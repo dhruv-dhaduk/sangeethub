@@ -1,6 +1,19 @@
 loadStylesheets();
 
+window.addEventListener("popstate", (e) => {
+    if (e.state === null) {
+        hideMusicPlayer();
+    }
+    else if (e.state.page === "player") {
+        showMusicPlayer();
+    }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
+    if (history.state && history.state.page === "player") {
+        showMusicPlayer();
+    }
+
     loadMarkups(); 
 
     const bodyClass = isMobileDevice() ? "mobile": "desktop";
@@ -12,7 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const playerpage = document.querySelector("#playerpage");
 
-    document.querySelector("#main-footer").addEventListener("click", showMusicPlayer);
+    document.querySelector("#main-footer").addEventListener("click", () => {
+        showMusicPlayer();
+        if (history.state === null) {
+            history.pushState({page: "player"}, "");
+        }
+    });
 });
 
 let fetchStatus = 0;

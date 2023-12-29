@@ -1,5 +1,12 @@
 function initMainFeed() {
-    document.querySelector("#player-btn-close").addEventListener("click", hideMusicPlayer);
+    document.querySelector("#player-btn-close").addEventListener("click", () => {
+        if (history.state === null) {
+            hideMusicPlayer();
+        }
+        else {
+            history.back();
+        }
+    });
 
     const loadITV = setInterval(() => {
         if (fetchStatus === 1) {
