@@ -24,6 +24,32 @@ const pauseLogoURL = "https://dhruv-dhaduk.github.io/assets/logos/white/pause_wh
 
 function loadMusicPlayer() {
 
+    document.querySelector("#player-btn-playpause").addEventListener("click", () => {
+        const stat = player.getPlayerState();
+        if (stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING)
+            player.pauseVideo();
+        else
+            player.playVideo();
+    });
+
+    document.querySelector("#player-btn-previous").addEventListener("click", () => {
+        playPreviousMusic();
+    });
+    document.querySelector("#player-btn-next").addEventListener("click", () => {
+        playNextMusic();
+    });
+
+    document.querySelector("#player-thumbnail").addEventListener("click", () => {
+        const thumbnailImg = document.querySelector("#player-thumbnail-img");
+
+        if (thumbnailImg.style.opacity === "0")
+            thumbnailImg.style.opacity = 1;
+        else if (thumbnailImg.style.opacity === "1")
+            thumbnailImg.style.opacity = 0;
+        else 
+            thumbnailImg.style.opacity = 1;
+    });
+
     addProgressbarEventListeners();
 
     progressBar = document.querySelector("#player-progressbar");
