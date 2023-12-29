@@ -24,20 +24,24 @@ const pauseLogoURL = "https://dhruv-dhaduk.github.io/assets/logos/white/pause_wh
 
 function loadMusicPlayer() {
 
-    document.querySelector("#player-btn-playpause").addEventListener("click", () => {
+    const playpauseBtn = function() {
         const stat = player.getPlayerState();
         if (stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING)
             player.pauseVideo();
         else
             player.playVideo();
-    });
+    }
 
-    document.querySelector("#player-btn-previous").addEventListener("click", () => {
-        playPreviousMusic();
-    });
-    document.querySelector("#player-btn-next").addEventListener("click", () => {
-        playNextMusic();
-    });
+    document.querySelector("#player-btn-playpause").addEventListener("click", playpauseBtn);
+    document.querySelector("#footer-btn-playpause").addEventListener("click", playpauseBtn);
+
+    document.querySelector("#player-btn-previous").addEventListener("click", playPreviousMusic);
+    document.querySelector("#player-btn-next").addEventListener("click", playNextMusic);
+
+    if (!isMobileDevice()) {
+        document.querySelector("#footer-btn-previous").addEventListener("click", playPreviousMusic);
+        document.querySelector("#footer-btn-next").addEventListener("click", playNextMusic);
+    }
 
     document.querySelector("#player-thumbnail").addEventListener("click", () => {
         const thumbnailImg = document.querySelector("#player-thumbnail-img");
@@ -140,6 +144,7 @@ function updateMetaData() {
             return;
 
         document.querySelector("#player-title").innerHTML = player.videoTitle;
+        document.querySelector("#footer-music-title").innerHTML = player.videoTitle;
 
         const currentTime = convertTime(player.getCurrentTime());
         const duration = convertTime(player.getDuration());
@@ -158,8 +163,11 @@ function updateMetaData() {
     const currentVideoID = musicData[currentVideoIndex].id;
 
     const thumbnail = `https://img.youtube.com/vi/${currentVideoID}/maxresdefault.jpg`;
+    const thumbnailLowRes = `https://img.youtube.com/vi/${currentVideoID}/default.jpg`;
     document.querySelector("#player-thumbnail-img").src = thumbnail;
     document.querySelector("#player-background-img").src = thumbnail;
+    document.querySelector("#footer-thumbnail-img").src = thumbnailLowRes;
+    document.querySelector("#footer-background-img").src = thumbnail;
 }
 
 function playMusic(id, startTime) {
