@@ -2,7 +2,7 @@ function onYouTubeIframeAPIReady() {
     console.log("API READY");
 
     const ITV = setInterval(() => {
-        if (isMarkupsLoaded) {
+        if (isMarkupsLoaded && fetchStatus === 1) {
             loadMusicPlayer();
             clearInterval(ITV);
         }
@@ -10,5 +10,5 @@ function onYouTubeIframeAPIReady() {
 }
 
 function loadMusicPlayer() {
-    
+    console.log(musicData);
 }
