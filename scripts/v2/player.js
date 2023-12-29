@@ -197,6 +197,8 @@ function playMusic(id, startTime) {
 
     iframeContainer.appendChild(iframeElement);
 
+    highlightMainFeedItem(id);
+
     currentVideoIndex = musicData.findIndex(x => x.id === id);
 
     setTimeout(() => {

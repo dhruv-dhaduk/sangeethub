@@ -55,3 +55,21 @@ fetchWorker.addEventListener("message", (msg) => {
 });
 
 fetchWorker.postMessage({command: "sheet"});
+
+function highlightMainFeedItem(id) {
+    const feedItems = document.querySelectorAll(".feeditem");
+
+    if (feedItems.length <= 0)
+        return false;
+
+    for (const item of feedItems) {
+        if (item.dataset.id === id) {
+            item.classList.add("playing");
+        }
+        else {
+            item.classList.remove("playing");
+        }
+    }
+
+    return true;
+}

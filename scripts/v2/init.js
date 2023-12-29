@@ -37,6 +37,12 @@ function loadMainFeedItems() {
         item.querySelector(".feeditem-thumbnail-img").src = `https://img.youtube.com/vi/${music.id}/default.jpg`;
         item.querySelector(".feeditem-title").innerHTML = music.title;
 
+        item.addEventListener("click", () => {
+            if (!item.classList.contains("playing")) {
+                playMusic(item.dataset.id, 0);
+            }
+        });
+
         mainfeed.append(item);
     }
 }
