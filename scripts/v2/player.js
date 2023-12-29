@@ -17,6 +17,7 @@ let currentVideoIndex;
 let timeUpdateITV;
 
 let progressBar;
+let footerProgressBar;
 let currentTimePara;
 
 const playLogoURL = "https://dhruv-dhaduk.github.io/assets/logos/white/play_white.png";
@@ -51,15 +52,17 @@ function loadMusicPlayer() {
         else if (thumbnailImg.style.opacity === "1")
             thumbnailImg.style.opacity = 0;
         else 
-            thumbnailImg.style.opacity = 1;
+            thumbnailImg.style.opacity = 0;
     });
 
     addProgressbarEventListeners();
 
     progressBar = document.querySelector("#player-progressbar");
     currentTimePara = document.querySelector("#player-current-time");
+    footerProgressBar = document.querySelector("#footer-progressbar");
 
     progressBar.value = 0;
+    footerProgressBar.value = 0;
 
     let currentTimeSTORED = Math.floor(Number(localStorage.getItem("currentTime")));
     if (!currentTimeSTORED || currentTimeSTORED < 0)
@@ -71,6 +74,8 @@ function loadMusicPlayer() {
 
     progressBar.max = currentDurationSTORED;
     progressBar.value = currentTimeSTORED;
+    footerProgressBar.max = currentDurationSTORED
+    footerProgressBar.value = currentTimeSTORED;
 
     const currentVideoIDSTORED = localStorage.getItem("currentVideoID");
 
@@ -106,24 +111,32 @@ function onPlayerStateChange(event) {
     const actualPlaying = stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING;
 
     const playpauseIcon = document.querySelector("#player-btn-playpause-img");
-
+    const playpauseIconFooter = document.querySelector("#footer-btn-playpause-img");
+    
     if (actualPlaying) {
         playpauseIcon.src = pauseLogoURL;
+        playpauseIconFooter.src = pauseLogoURL;
 
         clearInterval(timeUpdateITV);
         timeUpdateITV = setInterval(updateCurrentTime, 500);
     }
     else {
         playpauseIcon.src = playLogoURL;
+        playpauseIconFooter.src = playLogoURL;
 
         clearInterval(timeUpdateITV);
     }
 
     const playpause = document.querySelector("#player-btn-playpause");
-    if (stat === YT.PlayerState.BUFFERING)
+    const playpauseFooter = document.querySelector("#footer-btn-playpause");
+    if (stat === YT.PlayerState.BUFFERING) {
         playpause.classList.add("infinite-blink-animation");
-    else 
+        playpauseFooter.classList.add("infinite-blink-animation");
+    }
+    else {
         playpause.classList.remove("infinite-blink-animation");
+        playpauseFooter.classList.remove("infinite-blink-animation");
+    } 
 }
 
 function updateCurrentTime() {
@@ -131,6 +144,7 @@ function updateCurrentTime() {
         return;
 
     progressBar.value = Math.floor(player.getCurrentTime());
+    footerProgressBar.value = Math.floor(player.getCurrentTime());
     const currentTime = convertTime(player.getCurrentTime());
     if (currentTime) {
         currentTimePara.innerHTML = currentTime;
@@ -154,6 +168,8 @@ function updateMetaData() {
             currentTimePara.innerHTML = currentTime;
         progressBar.max = Math.floor(player.getDuration());
         progressBar.value = Math.floor(player.getCurrentTime());
+        footerProgressBar.max = Math.floor(player.getDuration());
+        footerProgressBar.value = Math.floor(player.getCurrentTime());
 
         localStorage.setItem("currentDuration", player.getDuration());
 
