@@ -1,3 +1,5 @@
+let isMarkupsLoaded = false;
+
 const markups = {
     "desktop": [
         {
@@ -42,15 +44,24 @@ const stylesheets = {
 function loadMarkups() {
     const markupList = isMobileDevice() ? markups.mobile : markups.desktop;
 
+    const promiseList = [];
+
     for (const mkp of markupList) {
-        loadElement(mkp.path, mkp.selector)
+        const promise = loadElement(mkp.path, mkp.selector)
         .then(() => {
             initMarkup(mkp.selector);
         })
         .catch((err) => {
             console.log(`Couldn't fetch the markup ${mkp.path} : ${err}`);
         });
+
+        promiseList.push(promise);
     }
+
+    Promise.all(promiseList)
+    .then((values) => {
+        isMarkupsLoaded = true;
+    });
 }
 
 function loadStylesheets() {
