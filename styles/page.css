@@ -1,7 +1,7 @@
 :root {
     --main-color: #0079E3;
     --page-background-color: #151515;
-    --feeditem-playing-background-color: #152736;
+    --feeditem-playing-background-color: rgba(0, 121, 227, 0.75);
     --button-background-color: rgba(255, 255, 255, 0.25);
 
     --header-background-color: var(--page-background-color);
