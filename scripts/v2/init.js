@@ -1,11 +1,5 @@
 function initMainFeed() {
-    document.querySelector("#player-btn-close").addEventListener("click", () => {
-        const playerpage = document.querySelector("#playerpage");
-        playerpage.classList.remove("show");
-        playerpage.classList.add("hide");
-
-        document.body.classList.remove("disable-scroll");
-    });
+    document.querySelector("#player-btn-close").addEventListener("click", hideMusicPlayer);
 
     const loadITV = setInterval(() => {
         if (fetchStatus === 1) {
@@ -38,4 +32,20 @@ function loadMainFeedItems() {
 
         mainfeed.append(item);
     }
+}
+
+function showMusicPlayer() {
+    const playerpage = document.querySelector("#playerpage");
+    playerpage.classList.remove("hide");
+    playerpage.classList.add("show");
+
+    document.body.classList.add("disable-scroll");
+}
+
+function hideMusicPlayer() {
+    const playerpage = document.querySelector("#playerpage");
+    playerpage.classList.remove("show");
+    playerpage.classList.add("hide");
+
+    document.body.classList.remove("disable-scroll");
 }

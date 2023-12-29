@@ -12,12 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const playerpage = document.querySelector("#playerpage");
 
-    document.querySelector("#main-footer").addEventListener("click", () => {
-        playerpage.classList.remove("hide");
-        playerpage.classList.add("show");
-
-        document.body.classList.add("disable-scroll");
-    });
+    document.querySelector("#main-footer").addEventListener("click", showMusicPlayer);
 });
 
 let fetchStatus = 0;
