@@ -1,4 +1,4 @@
-let isMarkupsLoaded = false;
+let markupsLoadStatus = 0;
 
 const markups = {
     "desktop": [
@@ -60,7 +60,11 @@ function loadMarkups() {
 
     Promise.all(promiseList)
     .then((values) => {
-        isMarkupsLoaded = true;
+        markupsLoadStatus = 1;
+    })
+    .catch((e) => {
+        markupsLoadStatus = -1;
+        console.log(`Couldn't fetch the markups : ${e}`);
     });
 }
 
