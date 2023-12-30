@@ -145,7 +145,7 @@
     margin: 0;
 }
 
-.moible .player-time-container > p {
+.mobile .player-time-container > p {
     margin: 0;
     padding: var(--player-time-container-padding);
 
