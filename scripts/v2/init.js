@@ -43,6 +43,14 @@ function loadMainFeedItems() {
             }
         });
 
+        item.querySelectorAll("img").forEach((img) => {
+            img.addEventListener("contextmenu", (e) => { e.preventDefault(); });
+        });
+
+        item.querySelectorAll("button").forEach((btn) => {
+            btn.addEventListener("click", (e) => { e.stopPropagation(); });
+        });
+
         mainfeed.append(item);
     }
 }
