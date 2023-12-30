@@ -47,20 +47,19 @@ function loadMusicPlayer() {
     const playVideoToggle = document.querySelector("#player-playvideo-toggle");
 
     playVideoToggle.addEventListener("click", () => {
-        const thumbnailImg = document.querySelector("#player-thumbnail-img");
 
         if (playVideoToggle.classList.contains("off")) {
-            thumbnailImg.style.opacity = 0;
+            toggleThumbnail(true);
             playVideoToggle.classList.remove("off");
             playVideoToggle.classList.add("on");
         }
         else if (playVideoToggle.classList.contains("on")) {
-            thumbnailImg.style.opacity = 1;
+            toggleThumbnail(false);
             playVideoToggle.classList.remove("on");
             playVideoToggle.classList.add("off");
         }
         else {
-            thumbnailImg.style.opacity = 0;
+            toggleThumbnail(true);
             playVideoToggle.classList.remove("off");
             playVideoToggle.classList.add("on");
         }
@@ -262,6 +261,25 @@ function playNextMusic() {
         currentVideoIndex++;
 
     playMusic(musicData[currentVideoIndex].id, 0);
+}
+
+function toggleThumbnail(showVideo) {
+    const thumbnailContent = document.querySelector(".player-thumbnail-content");
+    thumbnailContent.classList.remove("blink-animation");
+
+    setTimeout(() => {
+        thumbnailContent.classList.add("blink-animation");
+
+        const thumbnailImg = document.querySelector("#player-thumbnail-img");
+
+        if (showVideo) {
+            thumbnailImg.style.opacity = 0;
+        }
+        else {
+            thumbnailImg.style.opacity = 1;
+        }
+
+    }, 50);
 }
 
 function addProgressbarEventListeners() {

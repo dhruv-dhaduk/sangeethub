@@ -64,6 +64,11 @@
 
 /* Thumbnail section */
 
+.desktop .player-thumbnail {
+    background-color: black;
+    border-radius: var(--player-thumbnail-border-radius);
+}
+
 .desktop .player-thumbnail-content {
     width: 100%;
     height: 100%;
