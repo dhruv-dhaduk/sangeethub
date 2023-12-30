@@ -44,15 +44,26 @@ function loadMusicPlayer() {
         document.querySelector("#footer-btn-next").addEventListener("click", playNextMusic);
     }
 
-    document.querySelector("#player-thumbnail").addEventListener("click", () => {
+    const playVideoToggle = document.querySelector("#player-playvideo-toggle");
+
+    playVideoToggle.addEventListener("click", () => {
         const thumbnailImg = document.querySelector("#player-thumbnail-img");
 
-        if (thumbnailImg.style.opacity === "0")
+        if (playVideoToggle.classList.contains("off")) {
+            thumbnailImg.style.opacity = 0;
+            playVideoToggle.classList.remove("off");
+            playVideoToggle.classList.add("on");
+        }
+        else if (playVideoToggle.classList.contains("on")) {
             thumbnailImg.style.opacity = 1;
-        else if (thumbnailImg.style.opacity === "1")
+            playVideoToggle.classList.remove("on");
+            playVideoToggle.classList.add("off");
+        }
+        else {
             thumbnailImg.style.opacity = 0;
-        else 
-            thumbnailImg.style.opacity = 0;
+            playVideoToggle.classList.remove("off");
+            playVideoToggle.classList.add("on");
+        }
     });
 
     addProgressbarEventListeners();
