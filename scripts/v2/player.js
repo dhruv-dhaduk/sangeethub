@@ -48,8 +48,12 @@ function loadMusicPlayer() {
 
     playVideoToggle.addEventListener("click", () => {
 
+        const stat = player.getPlayerState();
+        const actualPlaying = stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING;
+
         if (playVideoToggle.classList.contains("off")) {
-            toggleThumbnail(true);
+            if (actualPlaying)
+                toggleThumbnail(true);
             playVideoToggle.classList.remove("off");
             playVideoToggle.classList.add("on");
         }
@@ -59,7 +63,8 @@ function loadMusicPlayer() {
             playVideoToggle.classList.add("off");
         }
         else {
-            toggleThumbnail(true);
+            if (actualPlaying)
+                toggleThumbnail(true);
             playVideoToggle.classList.remove("off");
             playVideoToggle.classList.add("on");
         }
@@ -146,6 +151,14 @@ function onPlayerStateChange(event) {
         playpauseIconFooter.src = playLogoURL;
 
         clearInterval(timeUpdateITV);
+    }
+
+    const playVideoToggle = document.querySelector("#player-playvideo-toggle");
+    if (playVideoToggle.classList.contains("on") && !playVideoToggle.classList.contains("off")) {
+        if (actualPlaying) 
+            toggleThumbnail(true);
+        else 
+            toggleThumbnail(false);
     }
 
     const playpause = document.querySelector("#player-btn-playpause");
