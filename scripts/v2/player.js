@@ -155,10 +155,10 @@ function onPlayerStateChange(event) {
 
     const playVideoToggle = document.querySelector("#player-playvideo-toggle");
     if (playVideoToggle.classList.contains("on") && !playVideoToggle.classList.contains("off")) {
-        if (actualPlaying) 
-            toggleThumbnail(true);
-        else 
+        if (!actualPlaying) 
             toggleThumbnail(false);
+        else if (stat === YT.PlayerState.PLAYING)
+            toggleThumbnail(true);
     }
 
     const playpause = document.querySelector("#player-btn-playpause");
