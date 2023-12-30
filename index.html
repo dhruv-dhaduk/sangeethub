@@ -4,88 +4,56 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <title>SangeetHub</title>
 
-        <link rel="shortcut icon" href="https://dhruv-dhaduk.github.io/assets/logos/colored/wave_sound.png" type="image/x-icon">
+        <script src="scripts/v2/util.js"></script>
+        <script src="scripts/v2/init.js"></script>
+        <script src="scripts/v2/loadMarkupSheet.js"></script>
+        <script src="scripts/v2/main.js"></script>
+        <script src="scripts/v2/player.js"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
 
         <link rel="stylesheet" href="styles/generic.css">
-        <link rel="stylesheet" href="styles/player.css">
-        <link rel="stylesheet" href="styles/music_queue.css">
-
-        <script src="scripts/main.js"></script>
-        <script src="scripts/fetch.js"></script>
-        <script src="scripts/player.js"></script>
-        <script src="scripts/lib.js"></script>
-        <script src="https://www.youtube.com/iframe_api" defer></script>
+        <link rel="stylesheet" href="styles/page.css">
+        <link rel="stylesheet" href="styles/header.css">
+        <link rel="stylesheet" href="styles/nav.css">
+        <link rel="stylesheet" href="styles/footer.css">
+        <link rel="stylesheet" href="styles/feed.css">
     </head>
 
     <body>
+
+        <header>
+            <a class="logo" href="/">
+                <img class="icon" src="https://dhruv-dhaduk.github.io/assets/logos/colored/wave_sound.png" draggable="false">
+                <span class="logo-text">SangeetHub</span>
+            </a>
+        </header>
+
+        <nav>
+            <div class="nav-item active">
+                <img class="nav-item-icon" src="https://dhruv-dhaduk.github.io/assets/logos/white/home_filled_white.png" draggable="false">
+                <span class="nav-item-label">Home</span>
+            </div>
+            <div class="nav-item">
+                <img class="nav-item-icon" src="https://dhruv-dhaduk.github.io/assets/logos/white/heart_filled_white.png" draggable="false">
+                <span class="nav-item-label">Liked</span>
+            </div>
+            <div class="nav-item">
+                <img class="nav-item-icon" src="https://dhruv-dhaduk.github.io/assets/logos/white/music_playlist_white.png" draggable="false">
+                <span class="nav-item-label">Playlists</span>
+            </div>
+            <div class="nav-item">
+                <img class="nav-item-icon" src="https://dhruv-dhaduk.github.io/assets/logos/white/information_white.png" draggable="false">
+                <span class="nav-item-label">About</span>
+            </div>
+        </nav>
+
+        <main></main>
+        <footer id="main-footer"></footer>
+
         <div id="playerpage">
-
-            <div class="player-background">
-                <img id="player-background-img" src="" draggable="false">
-            </div>
-
             
-            <div class="player">
-                <div id="player-thumbnail" class="player-thumbnail">
-                    <div class="player-thumbnail-content">
-                        <div class="player-iframe-container">
-                            <div id="player-iframe"></div>
-                        </div>
-                        
-                        <div class="player-thumbnail-img-container">
-                            <img id="player-thumbnail-img" src="" draggable="false">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="player-title-container">
-                    <p id="player-title" class="player-title">Music</p>
-                </div>
-    
-                <input id="player-progress-bar" class="player-progress-bar" type="range" value="0" max="100">
-    
-                <div class="player-time-container">
-                    <p id="player-current-time">00:00</p>
-                    <p id="player-duration">00:00</p>
-                </div>
-    
-                <div class="player-btn-container">
-                    <button id="player-btn-loop" class="player-btn player-btn-loop"><img src="https://dhruv-dhaduk.github.io/assets/logos/white/loop_white.png" draggable="false"></button>
-                    <button id="player-btn-previous" class="player-btn player-btn-previous"><img src="https://dhruv-dhaduk.github.io/assets/logos/white/previous_white.png" draggable="false"></button>
-                    <button id="player-btn-playpause" class="player-btn player-btn-playpause"><img id="player-btn-playpause-img" src="https://dhruv-dhaduk.github.io/assets/logos/white/play_white.png" draggable="false"></button>
-                    <button id="player-btn-next" class="player-btn player-btn-next"><img src="https://dhruv-dhaduk.github.io/assets/logos/white/next_white.png" draggable="false"></button>
-                    <button id="player-btn-queue" class="player-btn player-btn-queue"><img src="https://dhruv-dhaduk.github.io/assets/logos/white/music_queue_white.png" draggable="false"></button>
-                </div>
-
-                <div class="instructions">
-                    <p>This site is currently under development. Therefore you may find limited functionality and bugs.</p>
-                </div>
-            </div>
-
-            <div id="music-queue-card" class="music-queue-card">
-                
-                <div class="music-queue-header">
-                    <p class="music-queue-header-text">In Queue</p>
-                    <button id="music-queue-close-btn" class="music-queue-close-btn">
-                        <img src="https://dhruv-dhaduk.github.io/assets/logos/white/close_white.png" draggable="false">
-                    </button>
-                </div>
-
-                <div id="music-queue-content" class="music-queue-content">
-                </div>
-                
-                <template id="music-queue-item-template">
-                    <div class="music-queue-item" data-id="">
-                        <div class="music-queue-item-thumbnail-container">
-                            <img class="music-queue-item-thumbnail" src="" draggable="false">
-                        </div>
-                        <p class="music-queue-item-title"></p>
-                    </div>
-                </template>
-
-            </div>
-
         </div>
+        
     </body>
 
 </html>
