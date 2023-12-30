@@ -57,6 +57,17 @@ function loadMusicPlayer() {
 
     addProgressbarEventListeners();
 
+    document.querySelector("#player-btn-share").addEventListener("click", () => {
+        navigator.share({
+            title: player.videoTitle,
+            url: `https://youtu.be/${musicData[currentVideoIndex].id}`
+        });
+    });
+
+    document.querySelector("#player-btn-youtube").addEventListener("click", () => {
+        window.open(player.getVideoUrl(), "_blank");
+    });
+
     progressBar = document.querySelector("#player-progressbar");
     currentTimePara = document.querySelector("#player-current-time");
     footerProgressBar = document.querySelector("#footer-progressbar");
