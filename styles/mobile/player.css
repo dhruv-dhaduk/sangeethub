@@ -160,7 +160,7 @@
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .mobile .player-btn-container > button {
@@ -170,6 +170,9 @@
 
     width: var(--player-control-btn-size);
     aspect-ratio: 1;
+
+    margin-left: var(--player-control-btn-margin);
+    margin-right: var(--player-control-btn-margin);
 
     transition-duration: var(--button-click-transition-duration);
 }
