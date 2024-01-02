@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+.mobile #player-btn-like {
+    display: none;
+}
+
 .mobile .player {
     flex: 1;
 

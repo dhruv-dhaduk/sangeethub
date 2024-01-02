@@ -4,6 +4,10 @@
     align-items: center;
 }
 
+.desktop #player-btn-like {
+    display: none;
+}
+
 /* Background */
 
 .desktop .player-background {
