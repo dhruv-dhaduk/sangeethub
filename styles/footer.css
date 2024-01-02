@@ -148,6 +148,3 @@ footer {
 .footer-btn.playpause {
     background-color: rgba(255, 255, 255, 0.25);
 }
-.footer-btn.close {
-    margin-left: var(--footer-close-btn-left-margin);
-}

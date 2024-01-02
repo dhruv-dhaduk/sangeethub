@@ -44,7 +44,6 @@ body.desktop {
     --footer-thumbnail-border-radius: 0.5rem;
     --footer-title-font-size: 1.25rem;
     --footer-horizontal-margin: 0.5rem;
-    --footer-close-btn-left-margin: 2rem;
 }
 
 body.mobile {
@@ -58,7 +57,6 @@ body.mobile {
     --footer-thumbnail-border-radius: 0.5rem;
     --footer-title-font-size: 1.1rem;
     --footer-horizontal-margin: 0.5rem;
-    --footer-close-btn-left-margin: 0.1rem;
 }
 
 main {
