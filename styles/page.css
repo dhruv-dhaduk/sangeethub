@@ -5,11 +5,9 @@
     --button-background-color: rgba(255, 255, 255, 0.25);
 
     --header-background-color: var(--page-background-color);
-    --nav-background-color: var(--page-background-color);
     --footer-background-color: var(--page-background-color);
 
     --header-z-index: 10;
-    --nav-z-index: 1;
     --footer-z-index: 5;
     --playerpage-z-index: 20;
 
@@ -39,13 +37,6 @@ body {
 body.desktop {
     --header-height: 3.5rem;
 
-    --nav-width: 10rem;
-    --nav-item-height: 3rem;
-    --nav-items-margin: 0.25rem;
-    --nav-items-border-radius: 0.75rem;
-    --nav-icon-size: 1.5rem;
-    --nav-label-size: 1.2rem;
-
     --footer-height: 5rem;
     --footer-progressbar-height: 0.4rem;
     --footer-thumbnail-size: 4rem;
@@ -54,18 +45,10 @@ body.desktop {
     --footer-title-font-size: 1.25rem;
     --footer-horizontal-margin: 0.5rem;
     --footer-close-btn-left-margin: 2rem;
-
-    margin-left: var(--nav-width);
 }
 
 body.mobile {
     --header-height: 3rem;
-
-    --nav-height: 3rem;
-    --nav-items-margin: 0.1rem;
-    --nav-items-border-radius: 0.5rem;
-    --nav-icon-size: 1.25rem;
-    --nav-label-size: 0.7rem;
 
     --footer-height: 4rem;
     --footer-bottom-margin: 0.5rem;
@@ -102,7 +85,7 @@ main {
     --feeditem-horizontal-margin: 0.75rem;
     --feeditem-font-size: 1rem;
 
-    margin-bottom: calc(var(--nav-height) + var(--footer-height) + var(--footer-bottom-margin));
+    margin-bottom: calc(var(--footer-height) + var(--footer-bottom-margin));
 }
 
 #playerpage {
