@@ -113,17 +113,13 @@
     object-fit: cover;
 }
 
-/* Progressbar and volumebar of the player */
+/* Progressbar of the player */
 
 .desktop .player-progressbar {
     --bar-height: var(--player-progressbar-height);
 }
-.desktop .player-volumebar {
-    --bar-height: var(--player-volumebar-height);
-}
 
-.desktop .player-progressbar,
-.desktop .player-volumebar
+.desktop .player-progressbar
 {
     margin: 0;
     
@@ -134,8 +130,7 @@
     border-radius: calc(var(--bar-height) / 2);
     accent-color: var(--main-color);
 }
-.desktop .player-progressbar::-moz-range-thumb,
-.desktop .player-volumebar::-moz-range-thumb
+.desktop .player-progressbar::-moz-range-thumb
 {
     background-color: var(--main-color);
     border: none;
@@ -143,8 +138,7 @@
     height: calc(var(--bar-height) * 3);
     border-radius: 50%;
 }
-.desktop .player-progressbar::-moz-range-progress,
-.desktop .player-volumebar::-moz-range-progress
+.desktop .player-progressbar::-moz-range-progress
 {
     background-color: var(--main-color);
     height: 100%;
@@ -363,33 +357,6 @@
 }
 
 .desktop .player-playvideo-toggle-container > p {
-    margin: 0;
-    line-height: var(--player-default-line-height);
-
-    font-size: var(--player-audio-video-control-font-size);
-}
-
-.desktop .player-volume-container {
-    flex: 1;
-
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    justify-content: end;
-
-    --volumebar-length: 50%;
-}
-
-.desktop .player-volume-container > * {
-    width: var(--volumebar-length);
-}
-
-.desktop .player-volume-text {
-    display: flex;
-    justify-content: space-between;
-}
-
-.desktop .player-volume-text > p {
     margin: 0;
     line-height: var(--player-default-line-height);
 

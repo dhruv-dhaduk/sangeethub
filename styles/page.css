@@ -131,7 +131,6 @@ main {
     --toggle-height: 1.4rem;
     --player-audio-video-control-font-size: 0.85rem;
     --player-progressbar-height: 0.3rem;
-    --player-volumebar-height: 0.2rem;
 
     overflow: hidden;
     width: calc(100vw - (100vw - 100%));
