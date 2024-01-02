@@ -177,6 +177,14 @@
     background: none;
     border: none;
     border-radius: 50%;
+
+    transition-duration: var(--button-click-transition-duration);
+}
+
+.desktop .player-btn-container button:active {
+    scale: var(--button-click-scale);
+
+    transition-duration: var(--button-click-transition-duration);
 }
 
 .desktop .player-btn > img {
@@ -254,6 +262,8 @@
     /* Toggle button to play video */
 
 .desktop .player-playvideo-toggle {
+    cursor: pointer;
+
     --aspect-ratio: 2.2;
     --thumb-padding: calc(var(--toggle-height) / 5);
 
