@@ -43,20 +43,3 @@
     -webkit-line-clamp: 1;
             line-clamp: 1;
 }
-
-.feeditem-btn {
-    background: none;
-    border: none;
-
-    transition-duration: var(--button-click-transition-duration);
-}
-.feeditem-btn:active {
-    scale: 0.9;
-
-    transition-duration: var(--button-click-transition-duration);
-}
-
-.feeditem-btn > img {
-    width: var(--feeditem-buttons-size);
-    height: var(--feeditem-buttons-size);
-}
