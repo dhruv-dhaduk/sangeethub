@@ -1,104 +1,73 @@
-const playLogoURL = "https://dhruv-dhaduk.github.io/assets/logos/white/play_white.png";
-const pauseLogoURL = "https://dhruv-dhaduk.github.io/assets/logos/white/pause_white.png";
+loadStylesheets();
+
+window.addEventListener("popstate", (e) => {
+    if (e.state === null) {
+        hideMusicPlayer();
+    }
+    else if (e.state.page === "player") {
+        showMusicPlayer();
+    }
+});
 
 document.addEventListener("DOMContentLoaded", () => {
+    if (history.state && history.state.page === "player") {
+        showMusicPlayer();
+    }
+
+    loadMarkups(); 
+
+    const bodyClass = isMobileDevice() ? "mobile": "desktop";
+    document.body.classList.add(bodyClass);
+
     document.querySelectorAll("img").forEach((img) => {
         img.addEventListener("contextmenu", (e) => { e.preventDefault(); });
     });
 
-    document.querySelector("#player-btn-queue").addEventListener("click", showMusicQueue);
-    document.querySelector("#music-queue-close-btn").addEventListener("click", hideMusicQueue);
+    const playerpage = document.querySelector("#playerpage");
 
-    const populateMusicQueueITV = setInterval(() => {
-        if (fetchStatus === -1) {
-            clearInterval(populateMusicQueueITV);
+    document.querySelector("#main-footer").addEventListener("click", () => {
+        showMusicPlayer();
+        if (history.state === null) {
+            history.pushState({page: "player"}, "");
         }
-        else if (fetchStatus === 1) {
-            populateMusicQueue(musicData);
-            clearInterval(populateMusicQueueITV);
-        }
-    }, 500);
-
-    document.querySelector("#player-btn-playpause").addEventListener("click", () => {
-        const stat = player.getPlayerState();
-        if (stat === YT.PlayerState.PLAYING || stat === YT.PlayerState.BUFFERING)
-            player.pauseVideo();
-        else
-            player.playVideo();
     });
-
-    document.querySelector("#player-btn-previous").addEventListener("click", () => {
-        playPreviousMusic();
-    });
-    document.querySelector("#player-btn-next").addEventListener("click", () => {
-        playNextMusic();
-    });
-
-    document.querySelector("#player-thumbnail").addEventListener("click", toggleThumbnail);
-
-    addProgressbarEventListeners();
-
 });
 
-function showMusicQueue() {
-    const card = document.querySelector("#music-queue-card");
-    card.classList.remove("hidden");
-    card.classList.add("showing");
-}
+let fetchStatus = 0;
+let musicData;
 
-function hideMusicQueue() {
-    const card = document.querySelector("#music-queue-card");
-    card.classList.remove("showing");
-    card.classList.add("hidden");
-}
-
-function populateMusicQueue(data) {
-    const queue = document.querySelector("#music-queue-content");
-
-    for (const music of data) {
-        const item = createMusicQueueItem(music.id, music.title);
-        queue.append(item);
+let fetchWorker = new Worker("./scripts/fetchWorker.js");
+fetchWorker.addEventListener("message", (msg) => {
+    if (msg.data.sheet) {
+        musicData = msg.data.sheet;
+        fetchStatus = 1;
     }
+    else if (msg.data.error) {
+        fetchStatus = -1;
+        console.log(`Couldn't fetch data : ${error}`);
+        alert(`Couldn't fetch data : ${error}`);
+    }
+    else {
+        fetchStatus = -1;
+        console.log("Error while fetching data.");
+        alert("Error while fetching data.");
+    }
+});
 
-    queue.scrollTo(0, 0);
-}
+fetchWorker.postMessage({command: "sheet"});
 
-function createMusicQueueItem(id, title) {
-    const item = document.querySelector("#music-queue-item-template").content.querySelector(".music-queue-item").cloneNode(true);
-    
-    item.dataset.id = id;
-    item.addEventListener("click", () => {
-        if (!item.classList.contains("music-queue-item-playing")) {
-            playMusic(item.dataset.id, 0);
-            setTimeout(() => { hideMusicQueue(); }, 500);
-        }
-    });
+function highlightMainFeedItem(id) {
+    const feedItems = document.querySelectorAll(".feeditem");
 
-    const thumbnail = item.querySelector(".music-queue-item-thumbnail");
-    thumbnail.src = `https://img.youtube.com/vi/${id}/default.jpg`;
-    thumbnail.addEventListener("contextmenu", (e) => { e.preventDefault(); });
-
-    item.querySelector(".music-queue-item-title").innerHTML = title;
-
-    return item;
-}
-
-function highlightMusicQueueItemInPlay(id) {
-    
-    const queueItems = document.querySelectorAll(".music-queue-item");
-
-    if (queueItems.length <= 0)
+    if (feedItems.length <= 0)
         return false;
 
-    const queue = document.querySelector("#music-queue-content");
-    
-    for (const item of queueItems) {
+    for (const item of feedItems) {
         if (item.dataset.id === id) {
-            item.classList.add("music-queue-item-playing");
-            queue.scrollTo(0, item.offsetTop - item.offsetHeight - item.offsetLeft);
+            item.classList.add("playing");
         }
         else {
-            item.classList.remove("music-queue-item-playing");
+            item.classList.remove("playing");
         }
     }
 
